@@ -4,6 +4,7 @@ import 'package:corebancking_backoffice/providers/main_provider.dart';
 import 'package:corebancking_backoffice/providers/theme_provider.dart';
 import 'package:corebancking_backoffice/utils/custom_page_route.dart';
 import 'package:corebancking_backoffice/views/auth/login_Screen.dart';
+import 'package:corebancking_backoffice/views/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:provider/provider.dart';
@@ -24,7 +25,7 @@ Future<void> main() async {
 }
 
 class MyApp extends StatefulWidget {
-  static final navigator = GlobalKey<NavigatorState>();
+  static GlobalKey<NavigatorState> navigator = GlobalKey<NavigatorState>();
 
   const MyApp({super.key});
 
@@ -52,17 +53,13 @@ class _MyAppState extends State<MyApp> {
         title: localeProvider.appName,
         debugShowCheckedModeBanner: false,
         navigatorKey: MyApp.navigator,
-        // builder: (context, child) => BaseWidget(child: child!),
-        initialRoute: '/',
+        initialRoute: SplashScreen.route,
         theme: themeProvider.myTheme,
-        onGenerateRoute: (settings) => routing(settings),
+        routes: {
+          SplashScreen.route: (context) => MainScreen(route: SplashScreen.route),
+          LoginScreen.route: (context) => MainScreen(route: LoginScreen.route),
+        },
       );
     });
-  }
-
-  routing(settings) {
-    if (settings.name == '/') {
-      return CustomPageRoute(MainScreen());
-    }
   }
 }

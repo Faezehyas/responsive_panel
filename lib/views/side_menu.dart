@@ -18,6 +18,7 @@ class _SideMenuState extends State<SideMenu> {
     return Consumer2<ThemeProvider, LocaleProvider>(
         builder: (context, themeProvider, localeProvider, _) {
       return Drawer(
+        width: 280,
         backgroundColor: themeProvider.backgroundColor,
       );
     });
