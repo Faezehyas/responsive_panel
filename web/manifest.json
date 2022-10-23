@@ -1,11 +1,11 @@
 {
-    "name": "corebancking_backoffice",
-    "short_name": "corebancking_backoffice",
+    "name": "Wallet Core Managment",
+    "short_name": "Wallet Core Managment",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "description": "Wallet Core Managment",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

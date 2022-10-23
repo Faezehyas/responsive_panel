@@ -37,6 +37,7 @@ dependencies:
   intl: 0.17.0
   persian_number_utility: 1.1.2
   flutter_svg: 1.1.5
+  flutter_dotenv: 5.0.2
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -82,12 +83,18 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-      - family: IY
+      - family: IYR
         fonts:
           - asset: assets/fonts/IRANYekanRegularFaNum.ttf
       - family: IYB
         fonts:
           - asset: assets/fonts/IRANYekanBoldFaNum.ttf
+      - family: PR
+        fonts:
+          - asset: assets/fonts/Poppins-Regular.ttf
+      - family: PB
+        fonts:
+          - asset: assets/fonts/Poppins-Bold.ttf
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
