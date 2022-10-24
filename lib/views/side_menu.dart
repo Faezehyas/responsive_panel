@@ -1,5 +1,5 @@
-import 'package:corebancking_backoffice/providers/locale_provider.dart';
-import 'package:corebancking_backoffice/providers/theme_provider.dart';
+import 'package:wallet_core_managment/providers/locale_provider.dart';
+import 'package:wallet_core_managment/providers/theme_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

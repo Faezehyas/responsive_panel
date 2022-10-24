@@ -1,6 +1,6 @@
-import 'package:corebancking_backoffice/main.dart';
-import 'package:corebancking_backoffice/utils/my_navigator.dart';
-import 'package:corebancking_backoffice/views/auth/login_Screen.dart';
+import 'package:wallet_core_managment/main.dart';
+import 'package:wallet_core_managment/utils/my_navigator.dart';
+import 'package:wallet_core_managment/views/auth/login_Screen.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 

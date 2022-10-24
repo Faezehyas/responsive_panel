@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.corebancking_backoffice">
+    package="com.example.wallet_core_managment">
    <application
-        android:label="corebancking_backoffice"
+        android:label="wallet_core_managment"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

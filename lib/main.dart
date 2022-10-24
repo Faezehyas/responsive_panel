@@ -1,10 +1,10 @@
-import 'package:corebancking_backoffice/main_screen.dart';
-import 'package:corebancking_backoffice/providers/locale_provider.dart';
-import 'package:corebancking_backoffice/providers/main_provider.dart';
-import 'package:corebancking_backoffice/providers/theme_provider.dart';
-import 'package:corebancking_backoffice/utils/custom_page_route.dart';
-import 'package:corebancking_backoffice/views/auth/login_Screen.dart';
-import 'package:corebancking_backoffice/views/splash_screen.dart';
+import 'package:wallet_core_managment/main_screen.dart';
+import 'package:wallet_core_managment/providers/locale_provider.dart';
+import 'package:wallet_core_managment/providers/main_provider.dart';
+import 'package:wallet_core_managment/providers/theme_provider.dart';
+import 'package:wallet_core_managment/utils/custom_page_route.dart';
+import 'package:wallet_core_managment/views/auth/login_Screen.dart';
+import 'package:wallet_core_managment/views/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:provider/provider.dart';

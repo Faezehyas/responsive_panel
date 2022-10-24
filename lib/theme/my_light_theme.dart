@@ -1,4 +1,4 @@
-import 'package:corebancking_backoffice/utils/const.dart';
+import 'package:wallet_core_managment/utils/const.dart';
 import 'package:flutter/material.dart';
 
 class _Colors {

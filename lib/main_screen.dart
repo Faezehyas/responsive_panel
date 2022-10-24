@@ -1,10 +1,10 @@
-import 'package:corebancking_backoffice/providers/locale_provider.dart';
-import 'package:corebancking_backoffice/providers/theme_provider.dart';
-import 'package:corebancking_backoffice/utils/const.dart';
-import 'package:corebancking_backoffice/utils/responsive.dart';
-import 'package:corebancking_backoffice/views/auth/login_Screen.dart';
-import 'package:corebancking_backoffice/views/side_menu.dart';
-import 'package:corebancking_backoffice/views/splash_screen.dart';
+import 'package:wallet_core_managment/providers/locale_provider.dart';
+import 'package:wallet_core_managment/providers/theme_provider.dart';
+import 'package:wallet_core_managment/utils/const.dart';
+import 'package:wallet_core_managment/utils/responsive.dart';
+import 'package:wallet_core_managment/views/auth/login_Screen.dart';
+import 'package:wallet_core_managment/views/side_menu.dart';
+import 'package:wallet_core_managment/views/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
@@ -31,24 +31,27 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     return Consumer2<ThemeProvider, LocaleProvider>(
         builder: (context, themeProvider, localeProvider, _) {
-      return Navigator(
-        onGenerateRoute: (RouteSettings settings) {
-          WidgetBuilder builder;
-          switch (widget.route) {
-            case SplashScreen.route:
-              builder = (BuildContext context) => _view(SplashScreen());
-              break;
-            case LoginScreen.route:
-              builder = (BuildContext context) => _view(LoginScreen());
-              break;
-            default:
-              builder = (BuildContext context) => _view(SplashScreen());
-          }
-          return MaterialPageRoute(
-            builder: builder,
-            settings: settings,
-          );
-        },
+      return Directionality(
+        textDirection: localeProvider.textDirection,
+        child: Navigator(
+          onGenerateRoute: (RouteSettings settings) {
+            WidgetBuilder builder;
+            switch (widget.route) {
+              case SplashScreen.route:
+                builder = (BuildContext context) => _view(SplashScreen());
+                break;
+              case LoginScreen.route:
+                builder = (BuildContext context) => _view(LoginScreen());
+                break;
+              default:
+                builder = (BuildContext context) => _view(SplashScreen());
+            }
+            return MaterialPageRoute(
+              builder: builder,
+              settings: settings,
+            );
+          },
+        ),
       );
     });
   }
