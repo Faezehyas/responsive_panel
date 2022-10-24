@@ -2,7 +2,6 @@ import 'package:wallet_core_managment/main_screen.dart';
 import 'package:wallet_core_managment/providers/locale_provider.dart';
 import 'package:wallet_core_managment/providers/main_provider.dart';
 import 'package:wallet_core_managment/providers/theme_provider.dart';
-import 'package:wallet_core_managment/utils/custom_page_route.dart';
 import 'package:wallet_core_managment/views/auth/login_Screen.dart';
 import 'package:wallet_core_managment/views/dashboard/dashboard_screen.dart';
 import 'package:wallet_core_managment/views/splash_screen.dart';
