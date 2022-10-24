@@ -59,7 +59,7 @@ class _MainScreenState extends State<MainScreen> {
       appBar: widget.route == LoginScreen.route ||
               widget.route == SplashScreen.route
           ? null
-          : myAppBar(_themeProvider,_localeProvider),
+          : myAppBar(context,_themeProvider, _localeProvider),
       drawer: widget.route == LoginScreen.route ||
               widget.route == SplashScreen.route
           ? null
@@ -80,8 +80,6 @@ class _MainScreenState extends State<MainScreen> {
     );
   }
 
-  
-
   _desktop(BuildContext context, Widget child) {
     return Row(
       children: [
@@ -93,7 +91,7 @@ class _MainScreenState extends State<MainScreen> {
             appBar: (widget.route == LoginScreen.route ||
                     widget.route == SplashScreen.route)
                 ? null
-                : myAppBar(_themeProvider,_localeProvider),
+                : myAppBar(context,_themeProvider, _localeProvider),
             body: Container(
               height: Responsive.height(context),
               width: Responsive.width(context),

@@ -31,7 +31,7 @@ class LocaleProvider extends ChangeNotifier {
   String get regularFontFamily =>
       currentLocaleMode == MyLocaleMode.fa ? IYR : PR;
 
-  String get boldFontFamily => currentLocaleMode == MyLocaleMode.fa ? IYR : PR;
+  String get boldFontFamily => currentLocaleMode == MyLocaleMode.fa ? IYB : PB;
 
   //***********************************************************************************
   String get appName => dotenv

@@ -73,9 +73,9 @@ class _LoginScreenState extends State<LoginScreen> {
     return InkWell(
       mouseCursor: SystemMouseCursors.click,
       onTap: () {
-        if (_formKey.currentState!.validate()) {
-          MyNavigator.pushNamedAndRemoveUntil(context, DashboardScreen.route);
-        }
+        // if (_formKey.currentState!.validate()) {
+        MyNavigator.pushNamedAndRemoveUntil(context, DashboardScreen.route);
+        // }
       },
       child: Container(
         height: 56,

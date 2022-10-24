@@ -3,6 +3,7 @@ import 'package:wallet_core_managment/utils/my_navigator.dart';
 import 'package:wallet_core_managment/views/auth/login_Screen.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:wallet_core_managment/views/dashboard/dashboard_screen.dart';
 
 class MainProvider extends ChangeNotifier {
   static late SharedPreferences sharedPreferences;
@@ -15,7 +16,7 @@ class MainProvider extends ChangeNotifier {
     if (!isInit) {
       isInit = true;
       sharedPreferences = await SharedPreferences.getInstance();
-      MyNavigator.pushNamedAndRemoveUntil(context, LoginScreen.route);
+      MyNavigator.pushNamedAndRemoveUntil(context, DashboardScreen.route);
     }
   }
 }
