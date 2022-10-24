@@ -4,6 +4,7 @@ import 'package:wallet_core_managment/providers/main_provider.dart';
 import 'package:wallet_core_managment/providers/theme_provider.dart';
 import 'package:wallet_core_managment/utils/custom_page_route.dart';
 import 'package:wallet_core_managment/views/auth/login_Screen.dart';
+import 'package:wallet_core_managment/views/dashboard/dashboard_screen.dart';
 import 'package:wallet_core_managment/views/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
@@ -58,6 +59,7 @@ class _MyAppState extends State<MyApp> {
         routes: {
           SplashScreen.route: (context) => MainScreen(route: SplashScreen.route),
           LoginScreen.route: (context) => MainScreen(route: LoginScreen.route),
+          DashboardScreen.route: (context) => MainScreen(route: DashboardScreen.route),
         },
       );
     });

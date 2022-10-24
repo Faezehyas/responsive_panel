@@ -14,6 +14,52 @@
     This is a placeholder for base href that will be replaced by the value of
     the `--base-href` argument provided to `flutter build`.
   -->
+  <style>
+    .loading {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+    }
+
+    .loader {
+      border: 4px solid #4f46e5;
+      border-radius: 50%;
+      border-top: 4px solid white;
+      border-right: 4px solid #4f46e5;
+      border-bottom: 4px solid #4f46e5;
+      border-left: 4px solid #4f46e5;
+      width: 40px;
+      height: 40px;
+      -webkit-animation: spin 2s linear infinite;
+      animation: spin 2s linear infinite;
+    }
+
+    @-webkit-keyframes spin {
+      0% {
+        -webkit-transform: rotate(0deg);
+      }
+
+      100% {
+        -webkit-transform: rotate(360deg);
+      }
+    }
+
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
   <base href="$FLUTTER_BASE_HREF">
 
   <meta charset="UTF-8">
@@ -40,6 +86,11 @@
   <script src="flutter.js" defer></script>
 </head>
 <body>
+  <div class="loading">
+    <div class="loader"></div>
+  </div>
+  <br>
+  
   <script>
     window.addEventListener('load', function(ev) {
       // Download main.dart.js

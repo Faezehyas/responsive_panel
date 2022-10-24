@@ -3,7 +3,9 @@ import 'package:wallet_core_managment/providers/theme_provider.dart';
 import 'package:wallet_core_managment/utils/const.dart';
 import 'package:wallet_core_managment/utils/responsive.dart';
 import 'package:wallet_core_managment/views/auth/login_Screen.dart';
-import 'package:wallet_core_managment/views/side_menu.dart';
+import 'package:wallet_core_managment/views/dashboard/dashboard_screen.dart';
+import 'package:wallet_core_managment/views/my_widgets/my_app_bar.dart';
+import 'package:wallet_core_managment/views/my_widgets/side_menu.dart';
 import 'package:wallet_core_managment/views/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -20,10 +22,12 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
   ThemeProvider _themeProvider = ThemeProvider();
+  LocaleProvider _localeProvider = LocaleProvider();
 
   @override
   void initState() {
     _themeProvider = context.read<ThemeProvider>();
+    _localeProvider = context.read<LocaleProvider>();
     super.initState();
   }
 
@@ -35,21 +39,7 @@ class _MainScreenState extends State<MainScreen> {
         textDirection: localeProvider.textDirection,
         child: Navigator(
           onGenerateRoute: (RouteSettings settings) {
-            WidgetBuilder builder;
-            switch (widget.route) {
-              case SplashScreen.route:
-                builder = (BuildContext context) => _view(SplashScreen());
-                break;
-              case LoginScreen.route:
-                builder = (BuildContext context) => _view(LoginScreen());
-                break;
-              default:
-                builder = (BuildContext context) => _view(SplashScreen());
-            }
-            return MaterialPageRoute(
-              builder: builder,
-              settings: settings,
-            );
+            return _routing(settings);
           },
         ),
       );
@@ -69,24 +59,7 @@ class _MainScreenState extends State<MainScreen> {
       appBar: widget.route == LoginScreen.route ||
               widget.route == SplashScreen.route
           ? null
-          : AppBar(
-              backgroundColor: _themeProvider.backgroundColor,
-              leadingWidth: 40,
-              leading: Builder(
-                builder: (BuildContext context) {
-                  return Padding(
-                    padding: const EdgeInsets.only(left: 16),
-                    child: GestureDetector(
-                      onTap: () => Scaffold.of(context).openDrawer(),
-                      child: SvgPicture.asset(
-                        '${iconAsset}ic_menu.svg',
-                        color: _themeProvider.primaryColor,
-                      ),
-                    ),
-                  );
-                },
-              ),
-            ),
+          : myAppBar(_themeProvider,_localeProvider),
       drawer: widget.route == LoginScreen.route ||
               widget.route == SplashScreen.route
           ? null
@@ -107,6 +80,8 @@ class _MainScreenState extends State<MainScreen> {
     );
   }
 
+  
+
   _desktop(BuildContext context, Widget child) {
     return Row(
       children: [
@@ -118,9 +93,7 @@ class _MainScreenState extends State<MainScreen> {
             appBar: (widget.route == LoginScreen.route ||
                     widget.route == SplashScreen.route)
                 ? null
-                : AppBar(
-                    backgroundColor: _themeProvider.backgroundColor,
-                  ),
+                : myAppBar(_themeProvider,_localeProvider),
             body: Container(
               height: Responsive.height(context),
               width: Responsive.width(context),
@@ -137,6 +110,27 @@ class _MainScreenState extends State<MainScreen> {
           ),
         ),
       ],
+    );
+  }
+
+  MaterialPageRoute<dynamic> _routing(RouteSettings settings) {
+    WidgetBuilder builder;
+    switch (widget.route) {
+      case SplashScreen.route:
+        builder = (BuildContext context) => _view(SplashScreen());
+        break;
+      case LoginScreen.route:
+        builder = (BuildContext context) => _view(LoginScreen());
+        break;
+      case DashboardScreen.route:
+        builder = (BuildContext context) => _view(DashboardScreen());
+        break;
+      default:
+        builder = (BuildContext context) => _view(SplashScreen());
+    }
+    return MaterialPageRoute(
+      builder: builder,
+      settings: settings,
     );
   }
 }

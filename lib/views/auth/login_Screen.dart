@@ -4,8 +4,11 @@ import 'package:wallet_core_managment/providers/locale_provider.dart';
 import 'package:wallet_core_managment/providers/theme_provider.dart';
 import 'package:wallet_core_managment/theme/my_dark_theme.dart';
 import 'package:wallet_core_managment/utils/enums.dart';
+import 'package:wallet_core_managment/utils/my_navigator.dart';
 import 'package:wallet_core_managment/utils/validators.dart';
 import 'package:wallet_core_managment/views/my_widgets/my_text_form_field.dart';
+
+import '../dashboard/dashboard_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -19,8 +22,9 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   bool _obscurepass = true;
   IconData _passIcon = Icons.visibility;
-  FocusNode _userNameFocusNode = FocusNode();
-  FocusNode _passFocusNode = FocusNode();
+  final _userNameFocusNode = FocusNode();
+  final _passFocusNode = FocusNode();
+  final _formKey = GlobalKey<FormState>();
 
   @override
   void initState() {
@@ -37,56 +41,69 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return Consumer2<ThemeProvider, LocaleProvider>(
         builder: (context, themeProvider, localeProvider, _) {
-      return Center(
-        child: Container(
-          width: 360,
-          height: 380,
-          decoration: BoxDecoration(
-              color: themeProvider.backgroundColor,
-              borderRadius: BorderRadius.circular(8)),
-          child: Stack(
-            children: [
-              Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  _titleAndInputBox(localeProvider, themeProvider),
-                  InkWell(
-                    mouseCursor: SystemMouseCursors.click,
-                    child: Container(
-                      height: 56,
-                      decoration: BoxDecoration(
-                          color: themeProvider.primaryColor,
-                          borderRadius: const BorderRadius.vertical(
-                              bottom: Radius.circular(8))),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            localeProvider.login,
-                            style: TextStyle(
-                                color: MyDarkTheme.instance.colors.fontColor3,
-                                fontFamily: localeProvider.boldFontFamily,
-                                fontSize: 18),
-                          ),
-                          const SizedBox(
-                            width: 8,
-                          ),
-                          Icon(
-                            Icons.key_sharp,
-                            color: MyDarkTheme.instance.colors.fontColor3,
-                          )
-                        ],
-                      ),
-                    ),
-                  )
-                ],
-              ),
-              _languageAndTheme(localeProvider, context, themeProvider),
-            ],
+      return Form(
+        key: _formKey,
+        child: Center(
+          child: Container(
+            width: 360,
+            height: 380,
+            decoration: BoxDecoration(
+                color: themeProvider.backgroundColor,
+                borderRadius: BorderRadius.circular(8)),
+            child: Stack(
+              children: [
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    _titleAndInputBox(localeProvider, themeProvider),
+                    _loginBtn(themeProvider, localeProvider)
+                  ],
+                ),
+                _languageAndTheme(localeProvider, context, themeProvider),
+              ],
+            ),
           ),
         ),
       );
     });
+  }
+
+  InkWell _loginBtn(
+      ThemeProvider themeProvider, LocaleProvider localeProvider) {
+    return InkWell(
+      mouseCursor: SystemMouseCursors.click,
+      onTap: () {
+        if (_formKey.currentState!.validate()) {
+          MyNavigator.pushNamedAndRemoveUntil(context, DashboardScreen.route);
+        }
+      },
+      child: Container(
+        height: 56,
+        decoration: BoxDecoration(
+            color: themeProvider.primaryColor,
+            borderRadius:
+                const BorderRadius.vertical(bottom: Radius.circular(8))),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              localeProvider.login,
+              style: TextStyle(
+                  color: MyDarkTheme.instance.colors.fontColor3,
+                  fontFamily: localeProvider.boldFontFamily,
+                  fontSize: 18),
+            ),
+            const SizedBox(
+              width: 8,
+            ),
+            Icon(
+              Icons.key_sharp,
+              color: MyDarkTheme.instance.colors.fontColor3,
+            )
+          ],
+        ),
+      ),
+    );
   }
 
   Column _titleAndInputBox(
@@ -192,6 +209,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       localeProvider.currentLocaleMode == MyLocaleMode.en
                           ? MyLocaleMode.fa
                           : MyLocaleMode.en);
+                  _formKey.currentState!.validate();
                 },
                 child: Text(
                   localeProvider.LaOrFa,
