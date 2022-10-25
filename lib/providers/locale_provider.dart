@@ -106,9 +106,9 @@ class LocaleProvider extends ChangeNotifier {
   String get tools =>
       dotenv.env[currentLocaleMode == MyLocaleMode.en ? 'toolsEn' : 'toolsFa']
           .toString();
-  String get depositType => dotenv.env[currentLocaleMode == MyLocaleMode.en
-          ? 'depositTypeEn'
-          : 'depositTypeFa']
+  String get walletTypes => dotenv.env[currentLocaleMode == MyLocaleMode.en
+          ? 'walletTypesEn'
+          : 'walletTypesFa']
       .toString();
   String get userManagement => dotenv.env[currentLocaleMode == MyLocaleMode.en
           ? 'userManagementEn'

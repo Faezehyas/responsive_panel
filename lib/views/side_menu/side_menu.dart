@@ -6,6 +6,7 @@ import 'package:provider/provider.dart';
 import 'package:wallet_core_managment/utils/const.dart';
 import 'package:wallet_core_managment/views/side_menu/side_menu_title_widget.dart';
 import 'package:wallet_core_managment/views/side_menu/sub_menu_title_widget.dart';
+import 'package:wallet_core_managment/views/systems/wallet_types_screen.dart';
 
 class SideMenu extends StatefulWidget {
   const SideMenu({
@@ -38,7 +39,7 @@ class _SideMenuState extends State<SideMenu> {
               children: [
                 _systemMenu,
                 _customersMenu,
-                _depoistsMenu,
+                _walletsMenu,
                 _accountingMenu,
                 _reportsMenu,
                 _toolsMenu,
@@ -127,7 +128,6 @@ class _SideMenuState extends State<SideMenu> {
         builder: (context) {
           var title = _localeProvider.tools;
           final subtitles = _toolsSubtitles;
-          final routes = _toolsRoutes;
           return ExpansionTile(
             collapsedIconColor: _themeProvider.fontColor3,
             iconColor: _themeProvider.secondryColor,
@@ -137,17 +137,12 @@ class _SideMenuState extends State<SideMenu> {
                 color: _themeProvider.fontColor3,
               ),
               title: title,
-              localeProvider: _localeProvider,
-              themeProvider: _themeProvider,
             ),
             children: List.generate(
               subtitles.length,
               (index) => SubMenuTitleWidget(
-                title: title,
                 subtitle: subtitles[index],
-                themeProvider: _themeProvider,
-                localeProvider: _localeProvider,
-                routeTo: routes[index],
+                routeTo: _toolsRoutes[index],
               ),
             ),
           );
@@ -157,8 +152,7 @@ class _SideMenuState extends State<SideMenu> {
   Widget get _reportsMenu => Builder(
         builder: (context) {
           var title = _localeProvider.reporting;
-          final subtitles = _reportingSubtitles;
-          final routes = _reportingRoutes;
+          final _subtitles = _reportingSubtitles;
           return ExpansionTile(
             collapsedIconColor: _themeProvider.fontColor3,
             iconColor: _themeProvider.secondryColor,
@@ -168,17 +162,12 @@ class _SideMenuState extends State<SideMenu> {
                 color: _themeProvider.fontColor3,
               ),
               title: title,
-              localeProvider: _localeProvider,
-              themeProvider: _themeProvider,
             ),
             children: List.generate(
-              subtitles.length,
+              _subtitles.length,
               (index) => SubMenuTitleWidget(
-                title: title,
-                subtitle: subtitles[index],
-                themeProvider: _themeProvider,
-                localeProvider: _localeProvider,
-                routeTo: routes[index],
+                subtitle: _subtitles[index],
+                routeTo: _reportingRoutes[index],
               ),
             ),
           );
@@ -189,7 +178,6 @@ class _SideMenuState extends State<SideMenu> {
         builder: (context) {
           var title = _localeProvider.accounting;
           final subtitles = _accountingSubtitles;
-          final routes = _accountingRoutes;
           return ExpansionTile(
             collapsedIconColor: _themeProvider.fontColor3,
             iconColor: _themeProvider.secondryColor,
@@ -199,28 +187,22 @@ class _SideMenuState extends State<SideMenu> {
                 color: _themeProvider.fontColor3,
               ),
               title: title,
-              localeProvider: _localeProvider,
-              themeProvider: _themeProvider,
             ),
             children: List.generate(
               subtitles.length,
               (index) => SubMenuTitleWidget(
-                title: title,
                 subtitle: subtitles[index],
-                themeProvider: _themeProvider,
-                localeProvider: _localeProvider,
-                routeTo: routes[index],
+                routeTo: _accountingRoutes[index],
               ),
             ),
           );
         },
       );
 
-  Widget get _depoistsMenu => Builder(
+  Widget get _walletsMenu => Builder(
         builder: (context) {
           var title = _localeProvider.wallet;
           final subtitles = _walletSubtitles;
-          final routes = _walletRoutes;
           return ExpansionTile(
             collapsedIconColor: _themeProvider.fontColor3,
             iconColor: _themeProvider.secondryColor,
@@ -230,33 +212,24 @@ class _SideMenuState extends State<SideMenu> {
                 color: _themeProvider.fontColor3,
               ),
               title: title,
-              localeProvider: _localeProvider,
-              themeProvider: _themeProvider,
             ),
             children: List.generate(
               subtitles.length,
               (index) => SubMenuTitleWidget(
-                title: title,
                 subtitle: subtitles[index],
-                themeProvider: _themeProvider,
-                localeProvider: _localeProvider,
-                routeTo: routes[index],
+                routeTo: _walletRoutes[index],
               ),
             ),
           );
         },
       );
 
-  // bool _customerExpanded = false;
-
   Widget get _customersMenu => Builder(
         builder: (context) {
           var title = _localeProvider.customers;
           final subtitles = _customersSubtitles;
-          final routes = _customersRoutes;
           return ExpansionTile(
             collapsedIconColor: _themeProvider.fontColor3,
-            // initiallyExpanded: _customerExpanded,
             initiallyExpanded: false,
             iconColor: _themeProvider.secondryColor,
             title: SideMenuTitleWidget(
@@ -265,17 +238,12 @@ class _SideMenuState extends State<SideMenu> {
                 color: _themeProvider.fontColor3,
               ),
               title: title,
-              localeProvider: _localeProvider,
-              themeProvider: _themeProvider,
             ),
             children: List.generate(
               subtitles.length,
               (index) => SubMenuTitleWidget(
-                title: title,
                 subtitle: subtitles[index],
-                themeProvider: _themeProvider,
-                localeProvider: _localeProvider,
-                routeTo: routes[index],
+                routeTo: _customersRoutes[index],
               ),
             ),
           );
@@ -286,7 +254,6 @@ class _SideMenuState extends State<SideMenu> {
         builder: (context) {
           var title = _localeProvider.system;
           final subtitles = _systemSubtitles;
-          final routes = _systemRoutes;
           return ExpansionTile(
             collapsedIconColor: _themeProvider.fontColor3,
             iconColor: _themeProvider.secondryColor,
@@ -296,35 +263,30 @@ class _SideMenuState extends State<SideMenu> {
                 color: _themeProvider.fontColor3,
               ),
               title: title,
-              localeProvider: _localeProvider,
-              themeProvider: _themeProvider,
             ),
             children: List.generate(
               subtitles.length,
               (index) => SubMenuTitleWidget(
-                title: title,
                 subtitle: subtitles[index],
-                themeProvider: _themeProvider,
-                localeProvider: _localeProvider,
-                routeTo: routes[index],
+                routeTo: _systemRoutes[index],
               ),
             ),
           );
         },
       );
 
-  List<Widget> get _systemRoutes => [
-        Container(),
-        Container(),
-        Container(),
-        Container(),
-        Container(),
-        Container(),
-        Container(),
+  List<String> get _systemRoutes => [
+        WalletTypesScreen.route,
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
       ];
 
   List<String> get _systemSubtitles => [
-        _localeProvider.wallet,
+        _localeProvider.walletTypes,
         _localeProvider.userManagement,
         _localeProvider.specialTopicsManagment,
         _localeProvider.accountingTopicsManagment,
@@ -333,11 +295,11 @@ class _SideMenuState extends State<SideMenu> {
         _localeProvider.branchManagment,
       ];
 
-  List<Widget> get _customersRoutes => [
-        Container(),
-        Container(),
-        Container(),
-        Container(),
+  List<String> get _customersRoutes => [
+        '',
+        '',
+        '',
+        '',
       ];
 
   List<String> get _customersSubtitles => [
@@ -347,10 +309,10 @@ class _SideMenuState extends State<SideMenu> {
         _localeProvider.customersEvaluation,
       ];
 
-  List<Widget> get _walletRoutes => [
-        Container(),
-        Container(),
-        Container(),
+  List<String> get _walletRoutes => [
+        '',
+        '',
+        '',
       ];
 
   List<String> get _walletSubtitles => [
@@ -359,10 +321,10 @@ class _SideMenuState extends State<SideMenu> {
         _localeProvider.groupSettlement
       ];
 
-  List<Widget> get _accountingRoutes => [
-        Container(),
-        Container(),
-        Container(),
+  List<String> get _accountingRoutes => [
+        '',
+        '',
+        '',
       ];
 
   List<String> get _accountingSubtitles => [
@@ -371,13 +333,13 @@ class _SideMenuState extends State<SideMenu> {
         _localeProvider.writsManagment,
       ];
 
-  List<Widget> get _reportingRoutes => [
-        Container(),
-        Container(),
-        Container(),
-        Container(),
-        Container(),
-        Container(),
+  List<String> get _reportingRoutes => [
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
       ];
 
   List<String> get _reportingSubtitles => [
@@ -389,9 +351,9 @@ class _SideMenuState extends State<SideMenu> {
         _localeProvider.accountTurnoverReport,
       ];
 
-  List<Widget> get _toolsRoutes => [
-        Container(),
-        Container(),
+  List<String> get _toolsRoutes => [
+        '',
+        '',
       ];
 
   List<String> get _toolsSubtitles => [

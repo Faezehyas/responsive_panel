@@ -14,7 +14,7 @@ class MainProvider extends ChangeNotifier {
     if (!isInit) {
       isInit = true;
       sharedPreferences = await SharedPreferences.getInstance();
-      MyNavigator.pushNamedAndRemoveUntil(context, LoginScreen.route);
+      MyNavigator.pushNamedAndRemoveUntil(context, DashboardScreen.route);
     }
   }
 

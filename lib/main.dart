@@ -14,6 +14,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_web_plugins/flutter_web_plugins.dart';
+import 'package:wallet_core_managment/views/systems/wallet_types_screen.dart';
 
 Future<void> main() async {
   await dotenv.load();
@@ -89,6 +90,10 @@ class _MyAppState extends State<MyApp> {
     if (settings.name == InsertRealCustomersScreen.route) {
       return MaterialPageRoute(
           builder: (context) => InsertRealCustomersScreen(),
+          settings: settings);
+    }if (settings.name == WalletTypesScreen.route) {
+      return MaterialPageRoute(
+          builder: (context) => WalletTypesScreen(),
           settings: settings);
     }
   }
