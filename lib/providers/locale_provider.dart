@@ -87,4 +87,138 @@ class LocaleProvider extends ChangeNotifier {
   String get login =>
       dotenv.env[currentLocaleMode == MyLocaleMode.en ? 'loginEn' : 'loginFa']
           .toString();
+  String get system =>
+      dotenv.env[currentLocaleMode == MyLocaleMode.en ? 'systemEn' : 'systemFa']
+          .toString();
+  String get customers => dotenv
+      .env[currentLocaleMode == MyLocaleMode.en ? 'customersEn' : 'customersFa']
+      .toString();
+  String get wallet => dotenv
+      .env[currentLocaleMode == MyLocaleMode.en ? 'walletEn' : 'walletFa']
+      .toString();
+  String get accounting => dotenv.env[currentLocaleMode == MyLocaleMode.en
+          ? 'accountingEn'
+          : 'accountingFa']
+      .toString();
+  String get reporting => dotenv
+      .env[currentLocaleMode == MyLocaleMode.en ? 'reportingEn' : 'reportingFa']
+      .toString();
+  String get tools =>
+      dotenv.env[currentLocaleMode == MyLocaleMode.en ? 'toolsEn' : 'toolsFa']
+          .toString();
+  String get depositType => dotenv.env[currentLocaleMode == MyLocaleMode.en
+          ? 'depositTypeEn'
+          : 'depositTypeFa']
+      .toString();
+  String get userManagement => dotenv.env[currentLocaleMode == MyLocaleMode.en
+          ? 'userManagementEn'
+          : 'userManagementFa']
+      .toString();
+  String get specialTopicsManagment =>
+      dotenv.env[currentLocaleMode == MyLocaleMode.en
+              ? 'specialTopicsManagmentEn'
+              : 'specialTopicsManagmentFa']
+          .toString();
+  String get accountingTopicsManagment =>
+      dotenv.env[currentLocaleMode == MyLocaleMode.en
+              ? 'accountingTopicsManagmentEn'
+              : 'accountingTopicsManagmentFa']
+          .toString();
+  String get transactionLimitation =>
+      dotenv.env[currentLocaleMode == MyLocaleMode.en
+              ? 'transactionLimitationEn'
+              : 'transactionLimitationFa']
+          .toString();
+  String get commisionSetting => dotenv.env[currentLocaleMode == MyLocaleMode.en
+          ? 'commisionSettingEn'
+          : 'commisionSettingFa']
+      .toString();
+  String get branchManagment => dotenv.env[currentLocaleMode == MyLocaleMode.en
+          ? 'branchManagmentEn'
+          : 'branchManagmentFa']
+      .toString();
+  String get insertRealCustomers =>
+      dotenv.env[currentLocaleMode == MyLocaleMode.en
+              ? 'insertRealCustomersEn'
+              : 'insertRealCustomersFa']
+          .toString();
+  String get insertLegalCustomers =>
+      dotenv.env[currentLocaleMode == MyLocaleMode.en
+              ? 'insertLegalCustomersEn'
+              : 'insertLegalCustomersFa']
+          .toString();
+  String get customersManagment =>
+      dotenv.env[currentLocaleMode == MyLocaleMode.en
+              ? 'customersManagmentEn'
+              : 'customersManagmentFa']
+          .toString();
+  String get customersEvaluation =>
+      dotenv.env[currentLocaleMode == MyLocaleMode.en
+              ? 'customersEvaluationEn'
+              : 'customersEvaluationFa']
+          .toString();
+  String get message => dotenv
+      .env[currentLocaleMode == MyLocaleMode.en ? 'messageEn' : 'messageFa']
+      .toString();
+  String get customersWalletManagment =>
+      dotenv.env[currentLocaleMode == MyLocaleMode.en
+              ? 'customersWalletManagmentEn'
+              : 'customersWalletManagmentFa']
+          .toString();
+  String get transfer => dotenv
+      .env[currentLocaleMode == MyLocaleMode.en ? 'transferEn' : 'transferFa']
+      .toString();
+  String get groupSettlement => dotenv.env[currentLocaleMode == MyLocaleMode.en
+          ? 'groupSettlementEn'
+          : 'groupSettlementFa']
+      .toString();
+  String get createAccount => dotenv.env[currentLocaleMode == MyLocaleMode.en
+          ? 'createAccountEn'
+          : 'createAccountFa']
+      .toString();
+  String get accountManagment => dotenv.env[currentLocaleMode == MyLocaleMode.en
+          ? 'accountManagmentEn'
+          : 'accountManagmentFa']
+      .toString();
+  String get writsManagment => dotenv.env[currentLocaleMode == MyLocaleMode.en
+          ? 'writsManagmentEn'
+          : 'writsManagmentFa']
+      .toString();
+  String get ledgerBalance => dotenv.env[currentLocaleMode == MyLocaleMode.en
+          ? 'ledgerBalanceEn'
+          : 'ledgerBalanceFa']
+      .toString();
+  String get customersReport => dotenv.env[currentLocaleMode == MyLocaleMode.en
+          ? 'customersReportEn'
+          : 'customersReportFa']
+      .toString();
+  String get customersWalletsReport =>
+      dotenv.env[currentLocaleMode == MyLocaleMode.en
+              ? 'customersWalletsReportEn'
+              : 'customersWalletsReportFa']
+          .toString();
+  String get walletTurnoverReport =>
+      dotenv.env[currentLocaleMode == MyLocaleMode.en
+              ? 'walletTurnoverReportEn'
+              : 'walletTurnoverReportFa']
+          .toString();
+  String get blockingReport => dotenv.env[currentLocaleMode == MyLocaleMode.en
+          ? 'blockingReportEn'
+          : 'blockingReportFa']
+      .toString();
+  String get accountTurnoverReport =>
+      dotenv.env[currentLocaleMode == MyLocaleMode.en
+              ? 'accountTurnoverReportEn'
+              : 'accountTurnoverReportFa']
+          .toString();
+  String get changePassword => dotenv.env[currentLocaleMode == MyLocaleMode.en
+          ? 'changePasswordEn'
+          : 'changePasswordFa']
+      .toString();
+  String get exit =>
+      dotenv.env[currentLocaleMode == MyLocaleMode.en ? 'exitEn' : 'exitFa']
+          .toString();
+  String get financialManager =>
+      dotenv.env[currentLocaleMode == MyLocaleMode.en ? 'financialManagerEn' : 'financialManagerFa']
+          .toString();
 }
