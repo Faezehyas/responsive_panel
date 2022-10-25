@@ -6,6 +6,7 @@ import 'package:wallet_core_managment/providers/locale_provider.dart';
 import 'package:wallet_core_managment/providers/theme_provider.dart';
 import 'package:wallet_core_managment/utils/enums.dart';
 import 'package:persian_number_utility/persian_number_utility.dart';
+import 'package:wallet_core_managment/utils/responsive.dart';
 
 class RealTimeClock extends StatefulWidget {
   const RealTimeClock({super.key});
@@ -24,8 +25,8 @@ class RealTimeClockState extends State<RealTimeClock> {
   void initState() {
     _localeProvider = context.read<LocaleProvider>();
     if (mounted) {
-      _timeString = _formatDateTime(DateTime.now());
-      _dateString = _formatDate(DateTime.now());
+      _timeString = _localeProvider.formatTime(DateTime.now());
+      _dateString = _localeProvider.formatDate(DateTime.now());
       Timer.periodic(const Duration(seconds: 1), (Timer t) => _getTime());
     }
     super.initState();
@@ -34,30 +35,13 @@ class RealTimeClockState extends State<RealTimeClock> {
   void _getTime() {
     if (mounted) {
       final DateTime now = DateTime.now();
-      final String formattedTime = _formatDateTime(now);
-      final String formattedDate = _formatDate(now);
+      final String formattedTime = _localeProvider.formatTime(now);
+      final String formattedDate = _localeProvider.formatDate(now);
       setState(() {
         _timeString = formattedTime;
         _dateString = formattedDate;
       });
     }
-  }
-
-  String _formatDateTime(DateTime dateTime) {
-    return _localeProvider.currentLocaleMode == MyLocaleMode.en
-        ? DateFormat().add_Hms().format(dateTime)
-        : DateFormat()
-            .add_jms()
-            .format(dateTime)
-            .split(' ')
-            .first
-            .toPersianDigit();
-  }
-
-  String _formatDate(DateTime dateTime) {
-    return _localeProvider.currentLocaleMode == MyLocaleMode.en
-        ? DateFormat().add_yMMMEd().format(dateTime)
-        : dateTime.toPersianDateStr(showDayStr: true);
   }
 
   @override
@@ -67,23 +51,23 @@ class RealTimeClockState extends State<RealTimeClock> {
       _localeProvider = localeProvider;
       return Row(
         children: [
-          SizedBox(
-            width: 140,
-            child: Text(
-              _dateString ?? '',
-              textAlign: localeProvider.textAlign,
-              style: TextStyle(fontFamily: localeProvider.regularFontFamily),
-            ),
+          Text(
+            _dateString ?? '',
+            textAlign: localeProvider.textAlign,
+            style: TextStyle(fontFamily: localeProvider.regularFontFamily,
+            color: themeProvider.fontColor3),
           ),
           const SizedBox(
-            width: 8,
+            width: 4,
           ),
+          if(!Responsive.isMobile(context))
           SizedBox(
             width: 75,
             child: Text(
               ' ${_timeString ?? ''}',
               textAlign: localeProvider.textAlign,
-              style: TextStyle(fontFamily: localeProvider.regularFontFamily),
+              style: TextStyle(fontFamily: localeProvider.regularFontFamily,
+              color: themeProvider.fontColor3),
             ),
           ),
         ],

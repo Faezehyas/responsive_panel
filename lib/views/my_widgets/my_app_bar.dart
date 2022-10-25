@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:provider/provider.dart';
+import 'package:wallet_core_managment/main.dart';
 import 'package:wallet_core_managment/providers/locale_provider.dart';
+import 'package:wallet_core_managment/providers/main_provider.dart';
 import 'package:wallet_core_managment/providers/theme_provider.dart';
 import 'package:wallet_core_managment/utils/enums.dart';
 import 'package:wallet_core_managment/utils/responsive.dart';
@@ -13,6 +16,7 @@ AppBar myAppBar(BuildContext context, ThemeProvider themeProvider,
   return AppBar(
     backgroundColor: themeProvider.backgroundColor,
     leadingWidth: 40,
+    titleTextStyle: const TextStyle(fontSize: 14),
     leading: Responsive.isDesktop(context)
         ? null
         : Builder(
@@ -34,56 +38,70 @@ AppBar myAppBar(BuildContext context, ThemeProvider themeProvider,
               );
             },
           ),
-    actions: [
-      const Center(
-        child: RealTimeClock(),
-      ),
-      const SizedBox(
-        width: 24,
-      ),
-      InkWell(
-        onTap: () => themeProvider.changeTheme(
-            context,
-            themeProvider.currentThemeMode == MyThemeMode.dark
-                ? MyThemeMode.light
-                : MyThemeMode.dark),
-        child: Center(
-          child: Icon(
-            themeProvider.currentThemeMode == MyThemeMode.dark
-                ? Icons.light_mode_rounded
-                : Icons.dark_mode_rounded,
-            color: themeProvider.yellowColor,
-            size: 20,
-          ),
+    title: Row(
+      children: [
+        Image.asset(
+          '${iconAsset}logo.png',
+          width: 40,
         ),
-      ),
-      const SizedBox(
-        width: 24,
-      ),
-      InkWell(
-        mouseCursor: SystemMouseCursors.click,
-        onTap: () {
-          localeProvider.changeLocale(
-              context,
-              localeProvider.currentLocaleMode == MyLocaleMode.en
-                  ? MyLocaleMode.fa
-                  : MyLocaleMode.en);
-          // _formKey.currentState!.validate();
-        },
-        child: Center(
-          child: Text(
-            localeProvider.LaOrFa,
-            style: TextStyle(
-              color: themeProvider.blueColor,
-              fontFamily: localeProvider.regularFontFamily,
-              decoration: TextDecoration.underline,
-            ),
-          ),
+        const SizedBox(
+          width: 20,
         ),
-      ),
-      const SizedBox(
-        width: 18,
-      ),
-    ],
+        const RealTimeClock()
+      ],
+    ),
+    actions: _actions(themeProvider, context, localeProvider),
   );
+}
+
+List<Widget> _actions(ThemeProvider themeProvider, BuildContext context,
+    LocaleProvider localeProvider) {
+  return [
+    InkWell(
+      splashColor: Colors.white.withOpacity(0),
+      highlightColor: Colors.white.withOpacity(0),
+      hoverColor: Colors.white.withOpacity(0),
+      onTap: () => themeProvider.changeTheme(
+          context,
+          themeProvider.currentThemeMode == MyThemeMode.dark
+              ? MyThemeMode.light
+              : MyThemeMode.dark),
+      child: Icon(
+        themeProvider.currentThemeMode == MyThemeMode.dark
+            ? Icons.light_mode_rounded
+            : Icons.dark_mode_rounded,
+        color: themeProvider.yellowColor,
+        size: 20,
+      ),
+    ),
+    const SizedBox(
+      width: 24,
+    ),
+    InkWell(
+      splashColor: Colors.white.withOpacity(0),
+      highlightColor: Colors.white.withOpacity(0),
+      hoverColor: Colors.white.withOpacity(0),
+      mouseCursor: SystemMouseCursors.click,
+      onTap: () {
+        localeProvider.changeLocale(
+            context,
+            localeProvider.currentLocaleMode == MyLocaleMode.en
+                ? MyLocaleMode.fa
+                : MyLocaleMode.en);
+      },
+      child: Center(
+        child: Text(
+          localeProvider.LaOrFa,
+          style: TextStyle(
+            color: themeProvider.blueColor,
+            fontFamily: localeProvider.regularFontFamily,
+            decoration: TextDecoration.underline,
+          ),
+        ),
+      ),
+    ),
+    const SizedBox(
+      width: 18,
+    ),
+  ];
 }

@@ -1,7 +1,5 @@
 import 'dart:async';
-
 import 'package:wallet_core_managment/base_screen.dart';
-import 'package:wallet_core_managment/main_screen.dart';
 import 'package:wallet_core_managment/providers/locale_provider.dart';
 import 'package:wallet_core_managment/providers/main_provider.dart';
 import 'package:wallet_core_managment/providers/theme_provider.dart';
@@ -76,25 +74,25 @@ class _MyAppState extends State<MyApp> {
   routing(settings) {
     _mainProvider.updateCurrentRoute(settings.name);
     if (settings.name == SplashScreen.route) {
-      return MaterialPageRoute(
-          builder: (context) => SplashScreen(), settings: settings);
+      return PageRouteBuilder(
+          pageBuilder: (_, __, ___) => SplashScreen(), settings: settings);
     }
     if (settings.name == LoginScreen.route) {
-      return MaterialPageRoute(
-          builder: (context) => LoginScreen(), settings: settings);
+      return PageRouteBuilder(
+          pageBuilder: (_, __, ___) => LoginScreen(), settings: settings);
     }
     if (settings.name == DashboardScreen.route) {
-      return MaterialPageRoute(
-          builder: (context) => DashboardScreen(), settings: settings);
+      return PageRouteBuilder(
+          pageBuilder: (_, __, ___) => DashboardScreen(), settings: settings);
     }
     if (settings.name == InsertRealCustomersScreen.route) {
-      return MaterialPageRoute(
-          builder: (context) => InsertRealCustomersScreen(),
+      return PageRouteBuilder(
+          pageBuilder: (_, __, ___) => InsertRealCustomersScreen(),
           settings: settings);
-    }if (settings.name == WalletTypesScreen.route) {
-      return MaterialPageRoute(
-          builder: (context) => WalletTypesScreen(),
-          settings: settings);
+    }
+    if (settings.name == WalletTypesScreen.route) {
+      return PageRouteBuilder(
+          pageBuilder: (_, __, ___) => WalletTypesScreen(), settings: settings);
     }
   }
 }

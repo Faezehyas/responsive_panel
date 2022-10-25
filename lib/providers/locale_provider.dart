@@ -1,8 +1,9 @@
+import 'package:intl/intl.dart' as intl;
+import 'package:persian_number_utility/persian_number_utility.dart';
 import 'package:wallet_core_managment/utils/enums.dart';
 import 'package:wallet_core_managment/utils/user_infos.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-
 import '../utils/const.dart';
 
 class LocaleProvider extends ChangeNotifier {
@@ -35,6 +36,23 @@ class LocaleProvider extends ChangeNotifier {
       currentLocaleMode == MyLocaleMode.fa ? IYR : PR;
 
   String get boldFontFamily => currentLocaleMode == MyLocaleMode.fa ? IYB : PB;
+
+  String formatTime(DateTime dateTime) {
+    return currentLocaleMode == MyLocaleMode.en
+        ? intl.DateFormat().add_Hms().format(dateTime)
+        : intl.DateFormat()
+            .add_jms()
+            .format(dateTime)
+            .split(' ')
+            .first
+            .toPersianDigit();
+  }
+
+  String formatDate(DateTime dateTime) {
+    return currentLocaleMode == MyLocaleMode.en
+        ? intl.DateFormat().add_yMMMEd().format(dateTime)
+        : dateTime.toPersianDateStr(showDayStr: true);
+  }
 
   //***********************************************************************************
   String get appName => dotenv
@@ -93,9 +111,9 @@ class LocaleProvider extends ChangeNotifier {
   String get customers => dotenv
       .env[currentLocaleMode == MyLocaleMode.en ? 'customersEn' : 'customersFa']
       .toString();
-  String get wallet => dotenv
-      .env[currentLocaleMode == MyLocaleMode.en ? 'walletEn' : 'walletFa']
-      .toString();
+  String get wallet =>
+      dotenv.env[currentLocaleMode == MyLocaleMode.en ? 'walletEn' : 'walletFa']
+          .toString();
   String get accounting => dotenv.env[currentLocaleMode == MyLocaleMode.en
           ? 'accountingEn'
           : 'accountingFa']
@@ -218,7 +236,11 @@ class LocaleProvider extends ChangeNotifier {
   String get exit =>
       dotenv.env[currentLocaleMode == MyLocaleMode.en ? 'exitEn' : 'exitFa']
           .toString();
-  String get financialManager =>
-      dotenv.env[currentLocaleMode == MyLocaleMode.en ? 'financialManagerEn' : 'financialManagerFa']
-          .toString();
+  String get financialManager => dotenv.env[currentLocaleMode == MyLocaleMode.en
+          ? 'financialManagerEn'
+          : 'financialManagerFa']
+      .toString();
+  String get dashboard => dotenv
+      .env[currentLocaleMode == MyLocaleMode.en ? 'dashboardEn' : 'dashboardFa']
+      .toString();
 }

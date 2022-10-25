@@ -20,7 +20,7 @@ class SubMenuTitleWidget extends StatelessWidget {
         builder: (context, mainProvider, themeProvider, localeProvider, _) {
       return InkWell(
         onTap: routeTo.isNotEmpty
-            ? () => MyNavigator.pushNamed(context, routeTo)
+            ? () => MyNavigator.pushNamedAndRemoveUntil(context, routeTo)
             : null,
         child: Container(
           padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),

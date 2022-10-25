@@ -64,6 +64,7 @@ class _BaseScreenState extends State<BaseScreen> {
           ? null
           : SideMenu(),
       body: Container(
+        padding: EdgeInsets.fromLTRB(24, 8, 24, 0),
         height: Responsive.height(context),
         width: Responsive.width(context),
         decoration: BoxDecoration(
@@ -94,6 +95,7 @@ class _BaseScreenState extends State<BaseScreen> {
             body: Container(
               height: Responsive.height(context),
               width: Responsive.width(context),
+              padding: EdgeInsets.fromLTRB(24, 8, 24, 0),
               decoration: BoxDecoration(
                 color: _themeProvider.backgroundColor,
                 image: DecorationImage(

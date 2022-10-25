@@ -4,6 +4,9 @@ import 'package:wallet_core_managment/providers/theme_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:wallet_core_managment/utils/const.dart';
+import 'package:wallet_core_managment/utils/my_navigator.dart';
+import 'package:wallet_core_managment/views/customers/insert_real_customers_screen.dart';
+import 'package:wallet_core_managment/views/dashboard/dashboard_screen.dart';
 import 'package:wallet_core_managment/views/side_menu/side_menu_title_widget.dart';
 import 'package:wallet_core_managment/views/side_menu/sub_menu_title_widget.dart';
 import 'package:wallet_core_managment/views/systems/wallet_types_screen.dart';
@@ -37,6 +40,7 @@ class _SideMenuState extends State<SideMenu> {
                 child: ListView(
               shrinkWrap: true,
               children: [
+                _dashBoardBtn(context, localeProvider),
                 _systemMenu,
                 _customersMenu,
                 _walletsMenu,
@@ -49,6 +53,30 @@ class _SideMenuState extends State<SideMenu> {
         ),
       );
     });
+  }
+
+  ExpansionTile _dashBoardBtn(
+      BuildContext context, LocaleProvider localeProvider) {
+    return ExpansionTile(
+      trailing: const SizedBox(),
+      collapsedIconColor: _themeProvider.fontColor3,
+      iconColor: _themeProvider.secondryColor,
+      title: InkWell(
+        splashColor: Colors.white.withOpacity(0),
+        highlightColor: Colors.white.withOpacity(0),
+        hoverColor: Colors.white.withOpacity(0),
+        onTap: () {
+          MyNavigator.pushNamedAndRemoveUntil(context, DashboardScreen.route);
+        },
+        child: SideMenuTitleWidget(
+          icon: Icon(
+            Icons.dashboard,
+            color: _themeProvider.fontColor3,
+          ),
+          title: localeProvider.dashboard,
+        ),
+      ),
+    );
   }
 
   Stack _drawerHeader() {
@@ -296,7 +324,7 @@ class _SideMenuState extends State<SideMenu> {
       ];
 
   List<String> get _customersRoutes => [
-        '',
+        InsertRealCustomersScreen.route,
         '',
         '',
         '',
