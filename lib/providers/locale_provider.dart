@@ -28,6 +28,9 @@ class LocaleProvider extends ChangeNotifier {
       ? TextDirection.rtl
       : TextDirection.ltr;
 
+  TextAlign get textAlign =>
+      currentLocaleMode == MyLocaleMode.fa ? TextAlign.end : TextAlign.start;
+
   String get regularFontFamily =>
       currentLocaleMode == MyLocaleMode.fa ? IYR : PR;
 
@@ -61,6 +64,7 @@ class LocaleProvider extends ChangeNotifier {
     }
     return '${dotenv.env['pleaseFa']} $value ${dotenv.env['enterValidValueFa']}';
   }
+
   String get enterValidCode => dotenv.env[currentLocaleMode == MyLocaleMode.en
           ? 'enterValidCodeEn'
           : 'enterValidCodeFa']
@@ -71,6 +75,7 @@ class LocaleProvider extends ChangeNotifier {
     }
     return '${dotenv.env['pleaseFa']} $value ${dotenv.env['selectValueEn']}';
   }
+
   String get password => dotenv
       .env[currentLocaleMode == MyLocaleMode.en ? 'passwordEn' : 'passwordFa']
       .toString();
@@ -79,7 +84,7 @@ class LocaleProvider extends ChangeNotifier {
               ? 'enterValidPasswordEn'
               : 'enterValidPasswordFa']
           .toString();
-  String get login => dotenv
-      .env[currentLocaleMode == MyLocaleMode.en ? 'loginEn' : 'loginFa']
-      .toString();
+  String get login =>
+      dotenv.env[currentLocaleMode == MyLocaleMode.en ? 'loginEn' : 'loginFa']
+          .toString();
 }
