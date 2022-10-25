@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:wallet_core_managment/providers/locale_provider.dart';
 import 'package:wallet_core_managment/providers/theme_provider.dart';
 
 class SideMenuTitleWidget extends StatelessWidget {
   final String title;
   final Widget icon;
   final ThemeProvider themeProvider;
+  final LocaleProvider localeProvider;
   const SideMenuTitleWidget({
     Key? key,
     required this.icon,
     required this.themeProvider,
     required this.title,
+    required this.localeProvider,
   }) : super(key: key);
 
   @override
@@ -26,7 +29,9 @@ class SideMenuTitleWidget extends StatelessWidget {
             title,
             style: TextStyle(
               color: themeProvider.fontColor3,
-              fontWeight: FontWeight.bold,
+              fontFamily: localeProvider.regularFontFamily,
+              fontWeight: FontWeight.w700,
+              letterSpacing:  1
             ),
           )
         ],

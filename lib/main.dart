@@ -1,9 +1,14 @@
+import 'dart:async';
+
+import 'package:wallet_core_managment/base_screen.dart';
 import 'package:wallet_core_managment/main_screen.dart';
 import 'package:wallet_core_managment/providers/locale_provider.dart';
 import 'package:wallet_core_managment/providers/main_provider.dart';
 import 'package:wallet_core_managment/providers/theme_provider.dart';
+import 'package:wallet_core_managment/views/customers/insert_real_customers_screen.dart';
 import 'package:wallet_core_managment/views/auth/login_Screen.dart';
 import 'package:wallet_core_managment/views/dashboard/dashboard_screen.dart';
+import 'package:wallet_core_managment/views/side_menu/side_menu.dart';
 import 'package:wallet_core_managment/views/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
@@ -34,13 +39,19 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  MainProvider _mainProvider = MainProvider();
+  ThemeProvider _themeProvider = ThemeProvider();
+  LocaleProvider _localeProvider = LocaleProvider();
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) async {
-      await context.read<MainProvider>().init(context);
+      _mainProvider = context.read<MainProvider>();
+      _themeProvider = context.read<ThemeProvider>();
+      _localeProvider = context.read<LocaleProvider>();
+      await _mainProvider.init(context);
       if (!mounted) return;
-      context.read<ThemeProvider>().initTheme(context);
-      context.read<LocaleProvider>().init(context);
+      _themeProvider.initTheme(context);
+      _localeProvider.init(context);
     });
     super.initState();
   }
@@ -55,12 +66,41 @@ class _MyAppState extends State<MyApp> {
         navigatorKey: MyApp.navigator,
         initialRoute: SplashScreen.route,
         theme: themeProvider.myTheme,
-        routes: {
-          SplashScreen.route: (context) => MainScreen(route: SplashScreen.route),
-          LoginScreen.route: (context) => MainScreen(route: LoginScreen.route),
-          DashboardScreen.route: (context) => MainScreen(route: DashboardScreen.route),
-        },
+        builder: (context, child) => BaseScreen(child: child!),
+        onGenerateRoute: (settings) => routing(settings),
       );
     });
+  }
+
+  routing(settings) {
+    _mainProvider.updateCurrentRoute(settings.name);
+    if (settings.name == SplashScreen.route) {
+      return MaterialPageRoute(
+          builder: (context) => SplashScreen(), settings: settings);
+    }
+    if (settings.name == LoginScreen.route) {
+      return MaterialPageRoute(
+          builder: (context) => LoginScreen(), settings: settings);
+    }
+    if (settings.name == DashboardScreen.route) {
+      return MaterialPageRoute(
+          builder: (context) => DashboardScreen(), settings: settings);
+    }
+    if (settings.name == InsertRealCustomersScreen.route) {
+      return MaterialPageRoute(
+          builder: (context) => InsertRealCustomersScreen(),
+          settings: settings);
+    }
+  }
+
+  Map<String, WidgetBuilder> get _router {
+    return {
+      SplashScreen.route: (context) => MainScreen(route: SplashScreen.route),
+      LoginScreen.route: (context) => MainScreen(route: LoginScreen.route),
+      DashboardScreen.route: (context) =>
+          MainScreen(route: DashboardScreen.route),
+      InsertRealCustomersScreen.route: (context) =>
+          MainScreen(route: InsertRealCustomersScreen.route),
+    };
   }
 }
