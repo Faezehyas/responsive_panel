@@ -243,4 +243,41 @@ class LocaleProvider extends ChangeNotifier {
   String get dashboard => dotenv
       .env[currentLocaleMode == MyLocaleMode.en ? 'dashboardEn' : 'dashboardFa']
       .toString();
+  String get listOfAvailableWalletTypes =>
+      dotenv.env[currentLocaleMode == MyLocaleMode.en
+              ? 'listOfAvailableWalletTypesEn'
+              : 'listOfAvailableWalletTypesFa']
+          .toString();
+  String get neww =>
+      dotenv.env[currentLocaleMode == MyLocaleMode.en ? 'newEn' : 'newFa']
+          .toString();
+  String get showOrEdit => dotenv.env[currentLocaleMode == MyLocaleMode.en
+          ? 'showOrEditEn'
+          : 'showOrEditFa']
+      .toString();
+  String get delete =>
+      dotenv.env[currentLocaleMode == MyLocaleMode.en ? 'deleteEn' : 'deleteFa']
+          .toString();
+  String get returnn =>
+      dotenv.env[currentLocaleMode == MyLocaleMode.en ? 'returnEn' : 'returnFa']
+          .toString();
+  String get walletGroup => dotenv.env[currentLocaleMode == MyLocaleMode.en
+          ? 'walletGroupEn'
+          : 'walletGroupFa']
+      .toString();
+  String get walletName => dotenv.env[currentLocaleMode == MyLocaleMode.en
+          ? 'walletNameEn'
+          : 'walletNameFa']
+      .toString();
+  String get walletTitle => dotenv.env[currentLocaleMode == MyLocaleMode.en
+          ? 'walletTitleEn'
+          : 'walletTitleFa']
+      .toString();
+  String get mainTopicCode => dotenv.env[currentLocaleMode == MyLocaleMode.en
+          ? 'mainTopicCodeEn'
+          : 'mainTopicCodeFa']
+      .toString();
+  String get details => dotenv
+      .env[currentLocaleMode == MyLocaleMode.en ? 'detailsEn' : 'detailsFa']
+      .toString();
 }

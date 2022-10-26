@@ -7,7 +7,7 @@ class _Colors {
   final backgroundColor = Colors.grey.shade100;
   final boxColor1 = Colors.white;
   final boxColor2 = Colors.grey.shade300;
-  final boxColor3 = Colors.grey.shade400;
+  final boxColor3 = Colors.white;
   final fontColor1 = const Color(0xff5d677c);
   final fontColor2 = const Color(0xff7c8699);
   final fontColor3 = const Color(0xff334155);

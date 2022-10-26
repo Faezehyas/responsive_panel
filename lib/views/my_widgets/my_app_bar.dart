@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:provider/provider.dart';
-import 'package:wallet_core_managment/main.dart';
 import 'package:wallet_core_managment/providers/locale_provider.dart';
-import 'package:wallet_core_managment/providers/main_provider.dart';
 import 'package:wallet_core_managment/providers/theme_provider.dart';
 import 'package:wallet_core_managment/utils/enums.dart';
 import 'package:wallet_core_managment/utils/responsive.dart';
@@ -14,7 +11,7 @@ import 'dart:math' as math;
 AppBar myAppBar(BuildContext context, ThemeProvider themeProvider,
     LocaleProvider localeProvider) {
   return AppBar(
-    backgroundColor: themeProvider.backgroundColor,
+    backgroundColor: themeProvider.boxColor1,
     leadingWidth: 40,
     titleTextStyle: const TextStyle(fontSize: 14),
     leading: Responsive.isDesktop(context)

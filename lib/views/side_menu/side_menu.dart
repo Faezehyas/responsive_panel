@@ -31,7 +31,7 @@ class _SideMenuState extends State<SideMenu> {
       _localeProvider = localeProvider;
       return Drawer(
         width: 280,
-        backgroundColor: themeProvider.backgroundColor,
+        backgroundColor: themeProvider.boxColor1,
         child: Column(
           children: [
             _drawerHeader(),
@@ -66,7 +66,7 @@ class _SideMenuState extends State<SideMenu> {
         highlightColor: Colors.white.withOpacity(0),
         hoverColor: Colors.white.withOpacity(0),
         onTap: () {
-          MyNavigator.pushNamedAndRemoveUntil(context, DashboardScreen.route);
+          MyNavigator.pushNamed(context, DashboardScreen.route);
         },
         child: SideMenuTitleWidget(
           icon: Icon(

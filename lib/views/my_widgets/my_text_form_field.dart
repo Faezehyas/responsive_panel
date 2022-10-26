@@ -27,7 +27,8 @@ class MyTextFormField extends StatelessWidget {
       this.onChanged,
       this.suffixIcon,
       this.obscureText,
-      this.prefixIcon});
+      this.prefixIcon,
+      this.width});
 
   final TextEditingController? controller;
   final TextDirection? textDirection;
@@ -49,48 +50,52 @@ class MyTextFormField extends StatelessWidget {
   final Widget? suffixIcon;
   final Widget? prefixIcon;
   final bool? obscureText;
+  final double? width;
   
 
   @override
   Widget build(BuildContext context) {
     return Consumer2<ThemeProvider, LocaleProvider>(
         builder: (context, themeProvider, localeProvider, _) {
-      return SizedBox(
-          width: 300,
-          child: TextFormField(
-            autofillHints: autofillHints,
-            controller: controller,
-            readOnly: readOnly,
-            textAlign: textAlign,
-            textDirection: textDirection ?? localeProvider.textDirection,
-            cursorColor: themeProvider.primaryColor,
-            inputFormatters: inputFormatters,
-            keyboardType: keyboardType,
-            validator: validator,
-            focusNode: focusNode,
-            minLines: minLine ?? 1,
-            maxLines: maxLine ?? 1,
-            onTap: onTap,
-            obscureText: obscureText ?? false,
-            onChanged: onChanged,
-            autovalidateMode: AutovalidateMode.onUserInteraction,
-            decoration: InputDecoration(
-                labelText: labelText,
-                floatingLabelBehavior: floatingLabelBehavior,
-                suffixIcon: suffixIcon,
-                prefixIcon: prefixIcon,
-                floatingLabelStyle:
-                    TextStyle(color: themeProvider.primaryColor),
-                labelStyle: TextStyle(
+      return IgnorePointer(
+        ignoring: readOnly,
+        child: SizedBox(
+            width: width ?? 300,
+            child: TextFormField(
+              autofillHints: autofillHints,
+              controller: controller,
+              readOnly: readOnly,
+              textAlign: textAlign,
+              textDirection: textDirection ?? localeProvider.textDirection,
+              cursorColor: themeProvider.primaryColor,
+              inputFormatters: inputFormatters,
+              keyboardType: keyboardType,
+              validator: validator,
+              focusNode: focusNode,
+              minLines: minLine ?? 1,
+              maxLines: maxLine ?? 1,
+              onTap: onTap,
+              obscureText: obscureText ?? false,
+              onChanged: onChanged,
+              autovalidateMode: AutovalidateMode.onUserInteraction,
+              decoration: InputDecoration(
+                  labelText: labelText,
+                  floatingLabelBehavior: floatingLabelBehavior,
+                  suffixIcon: suffixIcon,
+                  prefixIcon: prefixIcon,
+                  floatingLabelStyle:
+                      TextStyle(color: themeProvider.primaryColor),
+                  labelStyle: TextStyle(
+                    fontFamily: localeProvider.regularFontFamily,
+                  ),
+                  errorStyle: TextStyle(
+                    fontFamily: localeProvider.regularFontFamily,
+                  )),
+              style: TextStyle(
                   fontFamily: localeProvider.regularFontFamily,
-                ),
-                errorStyle: TextStyle(
-                  fontFamily: localeProvider.regularFontFamily,
-                )),
-            style: TextStyle(
-                fontFamily: localeProvider.regularFontFamily,
-                color: themeProvider.fontColor3),
-          ));
+                  color: themeProvider.fontColor3),
+            )),
+      );
     });
   }
 }

@@ -4,6 +4,7 @@ import 'package:wallet_core_managment/providers/locale_provider.dart';
 import 'package:wallet_core_managment/providers/main_provider.dart';
 import 'package:wallet_core_managment/providers/theme_provider.dart';
 import 'package:wallet_core_managment/utils/my_navigator.dart';
+import 'package:wallet_core_managment/utils/responsive.dart';
 
 class SubMenuTitleWidget extends StatelessWidget {
   final String subtitle;
@@ -20,7 +21,10 @@ class SubMenuTitleWidget extends StatelessWidget {
         builder: (context, mainProvider, themeProvider, localeProvider, _) {
       return InkWell(
         onTap: routeTo.isNotEmpty
-            ? () => MyNavigator.pushNamedAndRemoveUntil(context, routeTo)
+            ? () {
+              MyNavigator.pushNamedAndRemoveUntil(context, routeTo);
+              if(!Responsive.isDesktop(context)) Scaffold.of(context).closeDrawer();
+            }
             : null,
         child: Container(
           padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
