@@ -4,20 +4,20 @@ import 'package:wallet_core_managment/providers/locale_provider.dart';
 import 'package:wallet_core_managment/providers/theme_provider.dart';
 import 'package:wallet_core_managment/views/my_widgets/my_text_form_field.dart';
 
-class TopicSelector extends StatefulWidget {
+class CustomerSelector extends StatefulWidget {
   String codeLabelText;
   String descLabelText;
-  TopicSelector({
+  CustomerSelector({
     required this.codeLabelText,
     required this.descLabelText,
     Key? key,
   }) : super(key: key);
 
   @override
-  State<TopicSelector> createState() => _TopicSelectorState();
+  State<CustomerSelector> createState() => _CustomerSelectorState();
 }
 
-class _TopicSelectorState extends State<TopicSelector> {
+class _CustomerSelectorState extends State<CustomerSelector> {
   @override
   Widget build(BuildContext context) {
     return Consumer2<LocaleProvider, ThemeProvider>(
@@ -44,10 +44,14 @@ class _TopicSelectorState extends State<TopicSelector> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Icon(Icons.arrow_drop_up_rounded,
-                    color: _themeProvider.primaryColor,),
-                    Icon(Icons.arrow_drop_down_rounded,
-                    color: _themeProvider.primaryColor,),
+                    Icon(
+                      Icons.arrow_drop_up_rounded,
+                      color: _themeProvider.primaryColor,
+                    ),
+                    Icon(
+                      Icons.arrow_drop_down_rounded,
+                      color: _themeProvider.primaryColor,
+                    ),
                   ],
                 ),
               ),

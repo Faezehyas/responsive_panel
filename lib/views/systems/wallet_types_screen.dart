@@ -183,13 +183,13 @@ class _WalletTypesScreenState extends State<WalletTypesScreen> {
                   ),
                 ),
                 SizedBox(
-                  width: 240,
+                  width: 200,
                   child: AmountWidget(
                     labelText: _localeProvider.walletCreationMinAmount,
                   ),
                 ),
                 SizedBox(
-                  width: 240,
+                  width: 200,
                   child: AmountWidget(
                     labelText: _localeProvider.walletMinBalance,
                   ),

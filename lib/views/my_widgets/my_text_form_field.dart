@@ -29,7 +29,8 @@ class MyTextFormField extends StatelessWidget {
       this.obscureText,
       this.prefixIcon,
       this.width,
-      this.maxLength});
+      this.maxLength,
+      this.contentPadding});
 
   final TextEditingController? controller;
   final TextDirection? textDirection;
@@ -53,6 +54,7 @@ class MyTextFormField extends StatelessWidget {
   final bool? obscureText;
   final double? width;
   final int? maxLength;
+  final EdgeInsetsGeometry? contentPadding;
 
   @override
   Widget build(BuildContext context) {
@@ -86,10 +88,13 @@ class MyTextFormField extends StatelessWidget {
                   floatingLabelBehavior: floatingLabelBehavior,
                   suffixIcon: suffixIcon,
                   prefixIcon: prefixIcon,
+                  contentPadding: contentPadding,
+                  prefixIconConstraints: BoxConstraints(minWidth: 0,minHeight: 0),
                   floatingLabelStyle:
                       TextStyle(color: themeProvider.primaryColor),
                   labelStyle: TextStyle(
                     fontFamily: localeProvider.regularFontFamily,
+                    fontSize: 12
                   ),
                   errorStyle: TextStyle(
                     fontFamily: localeProvider.regularFontFamily,
