@@ -1,4 +1,4 @@
-
+import 'package:wallet_core_managment/utils/enums.dart';
 import 'package:wallet_core_managment/utils/utils.dart';
 import 'package:wallet_core_managment/views/my_widgets/tree_view/tree_item.dart';
 
@@ -11,7 +11,7 @@ extension TreeItemListExt<T> on List<TreeItem<T>> {
       (index) => this[index].toggleExpansion(item),
     );
   }
-  
+
   List<TreeItem<T>> toggleSelection(T? item) {
     return List.generate(
       length,
@@ -30,9 +30,19 @@ extension TreeTestModelListExt on List<TreeTestModel> {
       )).toList();
 }
 
-
 extension NumberParsing on num {
   double w() => this * media.size.width / 100;
 
   double h() => this * media.size.height / 100;
+}
+
+extension IsEn on MyLocaleMode {
+  bool get isEn {
+    switch (this) {
+      case MyLocaleMode.en:
+        return true;
+      case MyLocaleMode.fa:
+        return false;
+    }
+  }
 }

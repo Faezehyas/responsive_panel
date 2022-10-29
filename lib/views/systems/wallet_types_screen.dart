@@ -5,11 +5,14 @@ import 'package:wallet_core_managment/providers/theme_provider.dart';
 import 'package:wallet_core_managment/utils/custom_grid_delegate.dart';
 import 'package:wallet_core_managment/utils/extension.dart';
 import 'package:wallet_core_managment/utils/responsive.dart';
+import 'package:wallet_core_managment/views/my_widgets/amount_widget.dart';
 import 'package:wallet_core_managment/views/my_widgets/mini_widgets.dart';
 import 'package:wallet_core_managment/views/my_widgets/my_button.dart';
 import 'package:wallet_core_managment/views/my_widgets/my_text_form_field.dart';
 
 import '../../models/tree_test_model.dart';
+import '../my_widgets/my_check_box_title.dart';
+import '../my_widgets/topic_selector.dart';
 import '../my_widgets/tree_view/tree_group_widget.dart';
 
 class WalletTypesScreen extends StatefulWidget {
@@ -25,9 +28,10 @@ class _WalletTypesScreenState extends State<WalletTypesScreen> {
   TreeTestModel? _selectedTreeModel;
   LocaleProvider _localeProvider = LocaleProvider();
   ThemeProvider _themeProvider = ThemeProvider();
-  TextEditingController _walletGroupController = TextEditingController();
-  TextEditingController _walletNameController = TextEditingController();
-  TextEditingController _walletTitleController = TextEditingController();
+  final TextEditingController _walletGroupController = TextEditingController();
+  final TextEditingController _walletNameController = TextEditingController();
+  final TextEditingController _walletTitleController = TextEditingController();
+  bool _isShowMode = false, _isEditMode = false;
 
   @override
   void initState() {
@@ -50,7 +54,7 @@ class _WalletTypesScreenState extends State<WalletTypesScreen> {
   }
 
   Row _tabletAndDesktop() {
-    return Row(children: [
+    return Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
       Expanded(
           flex: 3,
           child: BoxContainer(
@@ -65,11 +69,13 @@ class _WalletTypesScreenState extends State<WalletTypesScreen> {
       Expanded(
           flex: 4,
           child: Visibility(
-            visible: _selectedTreeModel != null,
-            child: BoxContainer(
-              child: SizedBox(
-                height: 100.h() - 130,
-                child: _secondForm(),
+            visible: _selectedTreeModel != null && (_isEditMode || _isShowMode),
+            child: SizedBox(
+              height: 100.h() - 130,
+              child: SingleChildScrollView(
+                child: BoxContainer(
+                  child: _secondForm(),
+                ),
               ),
             ),
           ))
@@ -79,6 +85,7 @@ class _WalletTypesScreenState extends State<WalletTypesScreen> {
   _mobile() {
     return Expanded(
       child: ListView(
+        padding: const EdgeInsets.only(bottom: kBottomNavigationBarHeight),
         children: [
           BoxContainer(
             child: SizedBox(
@@ -90,7 +97,8 @@ class _WalletTypesScreenState extends State<WalletTypesScreen> {
             height: 16,
           ),
           Visibility(
-              visible: _selectedTreeModel != null,
+              visible:
+                  _selectedTreeModel != null && (_isEditMode || _isShowMode),
               child: BoxContainer(child: _secondForm()))
         ],
       ),
@@ -126,8 +134,109 @@ class _WalletTypesScreenState extends State<WalletTypesScreen> {
               ),
             ),
             ..._walletTitlesDetails,
-            Row(
-              children: [Text(_localeProvider.mainTopicCode)],
+            const SizedBox(
+              height: 12,
+            ),
+            TopicSelector(
+              codeLabelText: _localeProvider.mainTopicCode,
+              descLabelText: _localeProvider.mainTopicTitle,
+            ),
+            TopicSelector(
+              codeLabelText: _localeProvider.policeTopicCode,
+              descLabelText: _localeProvider.policeTopicTitle,
+            ),
+            TopicSelector(
+              codeLabelText: _localeProvider.lotteryTopicCode,
+              descLabelText: _localeProvider.lotteryTopicTitle,
+            ),
+            const SizedBox(
+              height: 16,
+            ),
+            Wrap(
+              spacing: 12,
+              runSpacing: 12,
+              children: [
+                SizedBox(
+                  width: 180,
+                  child: MyTextFormField(
+                    labelText: _localeProvider.walletCreationStartDate,
+                    textDirection: _localeProvider.textDirection,
+                    suffixIcon: IconTheme(
+                      data: IconThemeData(color: _themeProvider.primaryColor),
+                      child: const Icon(
+                        Icons.calendar_month,
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  width: 180,
+                  child: MyTextFormField(
+                    labelText: _localeProvider.walletCreationEndDate,
+                    textDirection: _localeProvider.textDirection,
+                    suffixIcon: IconTheme(
+                      data: IconThemeData(color: _themeProvider.primaryColor),
+                      child: const Icon(
+                        Icons.calendar_month,
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  width: 240,
+                  child: AmountWidget(
+                    labelText: _localeProvider.walletCreationMinAmount,
+                  ),
+                ),
+                SizedBox(
+                  width: 240,
+                  child: AmountWidget(
+                    labelText: _localeProvider.walletMinBalance,
+                  ),
+                ),
+                MyCheckBoxTitle(
+                  label: _localeProvider.withdrawWithCard,
+                  width: _localeProvider.currentLocaleMode.isEn ? 250 : 170,
+                ),
+                MyCheckBoxTitle(
+                  label: _localeProvider.creditPermission,
+                  width: _localeProvider.currentLocaleMode.isEn ? 200 : 140,
+                ),
+                MyCheckBoxTitle(
+                  label: _localeProvider.withdrawPermission,
+                  width: _localeProvider.currentLocaleMode.isEn ? 220 : 150,
+                )
+              ],
+            ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(8, 24, 8, 4),
+              child: Wrap(
+                spacing: 16,
+                runSpacing: 16,
+                children: [
+                  MyButton(
+                      onPressed: _selectedTreeModel != null
+                          ? () {
+                              setState(() {
+                                _isShowMode = false;
+                              });
+                            }
+                          : null,
+                      width: 60,
+                      backgroundColor: _themeProvider.greenColor,
+                      title: _localeProvider.save),
+                  MyButton(
+                      width: 60,
+                      onPressed: _selectedTreeModel != null
+                          ? () {
+                              setState(() {
+                                _isShowMode = false;
+                              });
+                            }
+                          : null,
+                      title: _localeProvider.cancel),
+                ],
+              ),
             )
           ],
         ),
@@ -176,14 +285,29 @@ class _WalletTypesScreenState extends State<WalletTypesScreen> {
         runSpacing: 16,
         children: [
           MyButton(
-              onPressed: _selectedTreeModel != null ? () {} : null,
+              onPressed: _selectedTreeModel != null
+                  ? () {
+                      setState(() {
+                        _isShowMode = true;
+                      });
+                    }
+                  : null,
               width: 60,
               title: _localeProvider.neww),
           MyButton(
-              onPressed: _selectedTreeModel != null ? () {} : null,
+              onPressed: _selectedTreeModel != null
+                  ? () {
+                      setState(() {
+                        _isShowMode = true;
+                      });
+                    }
+                  : null,
               title: _localeProvider.showOrEdit),
           MyButton(
-              onPressed: _selectedTreeModel != null ? () {} : null,
+              onPressed: _selectedTreeModel != null
+                  ? () => deleteDialog(context,
+                      desc: _selectedTreeModel!.title)
+                  : null,
               width: 60,
               backgroundColor: _themeProvider.orangeColor,
               title: _localeProvider.delete),
@@ -210,13 +334,7 @@ class _WalletTypesScreenState extends State<WalletTypesScreen> {
 
   void _onTreeItemClick(TreeTestModel item) {
     setState(() {
-      if (_selectedTreeModel == null) {
-        _selectedTreeModel = item;
-      } else if (_selectedTreeModel != item) {
-        _selectedTreeModel = item;
-      } else {
-        _selectedTreeModel = null;
-      }
+      _selectedTreeModel = item;
       if (_selectedTreeModel != null) {
         _walletGroupController.text = _selectedTreeModel!.title;
         _walletTitleController.text = _selectedTreeModel!.title;

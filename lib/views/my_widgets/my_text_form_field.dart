@@ -28,7 +28,8 @@ class MyTextFormField extends StatelessWidget {
       this.suffixIcon,
       this.obscureText,
       this.prefixIcon,
-      this.width});
+      this.width,
+      this.maxLength});
 
   final TextEditingController? controller;
   final TextDirection? textDirection;
@@ -51,7 +52,7 @@ class MyTextFormField extends StatelessWidget {
   final Widget? prefixIcon;
   final bool? obscureText;
   final double? width;
-  
+  final int? maxLength;
 
   @override
   Widget build(BuildContext context) {
@@ -74,11 +75,13 @@ class MyTextFormField extends StatelessWidget {
               focusNode: focusNode,
               minLines: minLine ?? 1,
               maxLines: maxLine ?? 1,
+              maxLength: maxLength,
               onTap: onTap,
               obscureText: obscureText ?? false,
               onChanged: onChanged,
               autovalidateMode: AutovalidateMode.onUserInteraction,
               decoration: InputDecoration(
+                  counterText: "",
                   labelText: labelText,
                   floatingLabelBehavior: floatingLabelBehavior,
                   suffixIcon: suffixIcon,

@@ -280,4 +280,77 @@ class LocaleProvider extends ChangeNotifier {
   String get details => dotenv
       .env[currentLocaleMode == MyLocaleMode.en ? 'detailsEn' : 'detailsFa']
       .toString();
+  String get mainTopicTitle => dotenv.env[currentLocaleMode == MyLocaleMode.en
+          ? 'mainTopicTitleEn'
+          : 'mainTopicTitleFa']
+      .toString();
+  String get policeTopicCode => dotenv.env[currentLocaleMode == MyLocaleMode.en
+          ? 'policeTopicCodeEn'
+          : 'policeTopicCodeFa']
+      .toString();
+  String get policeTopicTitle => dotenv.env[currentLocaleMode == MyLocaleMode.en
+          ? 'policeTopicTitleEn'
+          : 'policeTopicTitleFa']
+      .toString();
+  String get lotteryTopicCode => dotenv.env[currentLocaleMode == MyLocaleMode.en
+          ? 'lotteryTopicCodeEn'
+          : 'lotteryTopicCodeFa']
+      .toString();
+  String get lotteryTopicTitle =>
+      dotenv.env[currentLocaleMode == MyLocaleMode.en
+              ? 'lotteryTopicTitleEn'
+              : 'lotteryTopicTitleFa']
+          .toString();
+  String get walletCreationStartDate =>
+      dotenv.env[currentLocaleMode == MyLocaleMode.en
+              ? 'walletCreationStartDateEn'
+              : 'walletCreationStartDateFa']
+          .toString();
+  String get walletCreationEndDate =>
+      dotenv.env[currentLocaleMode == MyLocaleMode.en
+              ? 'walletCreationEndDateEn'
+              : 'walletCreationEndDateFa']
+          .toString();
+  String get walletCreationMinAmount =>
+      dotenv.env[currentLocaleMode == MyLocaleMode.en
+              ? 'walletCreationMinAmountEn'
+              : 'walletCreationMinAmountFa']
+          .toString();
+  String get walletMinBalance => dotenv.env[currentLocaleMode == MyLocaleMode.en
+          ? 'walletMinBalanceEn'
+          : 'walletMinBalanceFa']
+      .toString();
+  String get creditPermission => dotenv.env[currentLocaleMode == MyLocaleMode.en
+          ? 'creditPermissionEn'
+          : 'creditPermissionFa']
+      .toString();
+  String get withdrawPermission =>
+      dotenv.env[currentLocaleMode == MyLocaleMode.en
+              ? 'withdrawPermissionEn'
+              : 'withdrawPermissionFa']
+          .toString();
+  String get moneySymbol => dotenv.env[currentLocaleMode == MyLocaleMode.en
+          ? 'moneySymbolEn'
+          : 'moneySymbolFa']
+      .toString();
+  String get withdrawWithCard => dotenv.env[currentLocaleMode == MyLocaleMode.en
+          ? 'withdrawWithCardEn'
+          : 'withdrawWithCardFa']
+      .toString();
+  String get save =>
+      dotenv.env[currentLocaleMode == MyLocaleMode.en ? 'saveEn' : 'saveFa']
+          .toString();
+  String get cancel =>
+      dotenv.env[currentLocaleMode == MyLocaleMode.en ? 'cancelEn' : 'cancelFa']
+          .toString();
+  String get areYouSure => dotenv.env[currentLocaleMode == MyLocaleMode.en
+          ? 'areYouSureEn'
+          : 'areYouSureFa']
+      .toString();
+  String get yes =>
+      dotenv.env[currentLocaleMode == MyLocaleMode.en ? 'yesEn' : 'yesFa']
+          .toString();
+  String get no =>
+      dotenv.env[currentLocaleMode == MyLocaleMode.en ? 'noEn' : 'noFa']
+          .toString();
 }

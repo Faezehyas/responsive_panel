@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:wallet_core_managment/providers/locale_provider.dart';
 import 'package:wallet_core_managment/views/my_widgets/tree_view/tree_item.dart';
 import '../../../providers/theme_provider.dart';
 import '../../../utils/utils.dart';
@@ -89,7 +90,7 @@ class TreeChildWidget<T> extends StatelessWidget {
                         padding: const EdgeInsetsDirectional.only(end: 6),
                         child: AnimatedDefaultTextStyle(
                           style: textStyle.copyWith(
-                            fontFamily: 'roboto',
+                            fontFamily: context.read<LocaleProvider>().regularFontFamily,
                             color: textStyle.color
                                 ?.withOpacity(item.isExpanded ? 1 : .8),
                           ),

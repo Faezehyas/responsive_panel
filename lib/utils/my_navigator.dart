@@ -3,6 +3,8 @@ import 'package:flutter/cupertino.dart';
 import '../main.dart';
 
 class MyNavigator {
+  static pop() => MyApp.navigator.currentState!.pop();
+
   static pushNamed(BuildContext context, String route, {Object? arguments}) {
     MyApp.navigator.currentState!.pushNamed(route, arguments: arguments);
   }
