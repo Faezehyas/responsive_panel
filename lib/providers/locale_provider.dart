@@ -41,7 +41,7 @@ class LocaleProvider extends ChangeNotifier {
     return currentLocaleMode == MyLocaleMode.en
         ? intl.DateFormat().add_Hms().format(dateTime)
         : intl.DateFormat()
-            .add_jms()
+            .add_Hms()
             .format(dateTime)
             .split(' ')
             .first
