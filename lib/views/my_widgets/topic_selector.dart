@@ -29,8 +29,8 @@ class _TopicSelectorState extends State<TopicSelector> {
             MyTextFormField(
               labelText: widget.codeLabelText,
               textDirection: _localeProvider.textDirection,
-              maxLength: 9,
-              width: 160,
+              maxLength: 10,
+              width: 166,
               suffixIcon: IconTheme(
                 data: IconThemeData(color: _themeProvider.primaryColor),
                 child: const Icon(

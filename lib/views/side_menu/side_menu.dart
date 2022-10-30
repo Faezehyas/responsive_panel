@@ -9,6 +9,7 @@ import 'package:wallet_core_managment/views/customers/insert_real_customers_scre
 import 'package:wallet_core_managment/views/dashboard/dashboard_screen.dart';
 import 'package:wallet_core_managment/views/side_menu/side_menu_title_widget.dart';
 import 'package:wallet_core_managment/views/side_menu/sub_menu_title_widget.dart';
+import 'package:wallet_core_managment/views/systems/accounting_topics_managment_screen.dart';
 import 'package:wallet_core_managment/views/systems/user_managment_screen.dart';
 import 'package:wallet_core_managment/views/systems/wallet_types_screen.dart';
 
@@ -308,7 +309,7 @@ class _SideMenuState extends State<SideMenu> {
         WalletTypesScreen.route,
         UserManagmentScreen.route,
         '',
-        '',
+        AccountingTopicsManagmentScreen.route,
         '',
         '',
         '',
