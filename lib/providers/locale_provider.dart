@@ -333,4 +333,26 @@ class LocaleProvider extends ChangeNotifier {
   String get description =>
       dotenv.env[currentLocaleMode.isEn ? 'descriptionEn' : 'descriptionFa']
           .toString();
+  String get mainGroup =>
+      dotenv.env[currentLocaleMode.isEn ? 'mainGroupEn' : 'mainGroupFa']
+          .toString();
+  String get essence =>
+      dotenv.env[currentLocaleMode.isEn ? 'essenceEn' : 'essenceFa'].toString();
+  String get debtor =>
+      dotenv.env[currentLocaleMode.isEn ? 'debtorEn' : 'debtorFa'].toString();
+  String get creditor =>
+      dotenv.env[currentLocaleMode.isEn ? 'creditorEn' : 'creditorFa']
+          .toString();
+  String get dual =>
+      dotenv.env[currentLocaleMode.isEn ? 'dualEn' : 'dualFa'].toString();
+  String get topicCode =>
+      dotenv.env[currentLocaleMode.isEn ? 'topicCodeEn' : 'topicCodeFa']
+          .toString();
+  String get deactive =>
+      dotenv.env[currentLocaleMode.isEn ? 'deactiveEn' : 'deactiveFa']
+          .toString();
+  String get listOfAvailableTopics => dotenv.env[currentLocaleMode.isEn
+          ? 'listOfAvailableTopicsEn'
+          : 'listOfAvailableTopicsFa']
+      .toString();
 }
