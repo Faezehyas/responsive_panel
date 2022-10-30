@@ -46,3 +46,14 @@ extension IsEn on MyLocaleMode {
     }
   }
 }
+
+extension IsDark on MyThemeMode {
+  bool get isDark {
+    switch (this) {
+      case MyThemeMode.dark:
+        return true;
+      case MyThemeMode.light:
+        return false;
+    }
+  }
+}

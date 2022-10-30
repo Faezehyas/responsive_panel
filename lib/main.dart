@@ -12,6 +12,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_web_plugins/flutter_web_plugins.dart';
+import 'package:wallet_core_managment/views/systems/user_managment_screen.dart';
 import 'package:wallet_core_managment/views/systems/wallet_types_screen.dart';
 
 Future<void> main() async {
@@ -93,6 +94,10 @@ class _MyAppState extends State<MyApp> {
     if (settings.name == WalletTypesScreen.route) {
       return PageRouteBuilder(
           pageBuilder: (_, __, ___) => WalletTypesScreen(), settings: settings);
+    }
+    if (settings.name == UserManagmentScreen.route) {
+      return PageRouteBuilder(
+          pageBuilder: (_, __, ___) => UserManagmentScreen(), settings: settings);
     }
   }
 }
