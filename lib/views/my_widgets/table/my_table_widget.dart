@@ -2,18 +2,25 @@ import 'package:flutter/material.dart';
 
 class MyTableWidget extends StatelessWidget {
   Color? headerBackgroundColor;
-  Color? evenBackgrounColor;
+  Color? oddBackgrounColor;
   List<Widget> headers;
-  List<List<Widget>> data;
+  List<List<Widget>>? data;
   MyTableWidget(
-      {required this.headers, required this.data, this.headerBackgroundColor});
+      {required this.headers,
+      this.data,
+      this.headerBackgroundColor,
+      this.oddBackgrounColor});
+
+  ScrollController _rowScrollContrller = ScrollController();
 
   @override
   Widget build(BuildContext context) {
     return ListView(
+      controller: ScrollController(),
       children: [
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
+          controller: _rowScrollContrller,
           child: Column(
             children: [
               Container(
@@ -26,20 +33,21 @@ class MyTableWidget extends StatelessWidget {
                   children: headers,
                 ),
               ),
-              ...data
-                  .map((e) => Container(
-                        padding: EdgeInsets.all(12),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          color: data.indexOf(e).isEven
-                              ? evenBackgrounColor
-                              : null,
-                        ),
-                        child: Row(
-                          children: e,
-                        ),
-                      ))
-                  .toList()
+              if (data != null)
+                ...data!
+                    .map((e) => Container(
+                          padding: EdgeInsets.all(12),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: data!.indexOf(e).isOdd
+                                ? oddBackgrounColor
+                                : null,
+                          ),
+                          child: Row(
+                            children: e,
+                          ),
+                        ))
+                    .toList()
             ],
           ),
         )

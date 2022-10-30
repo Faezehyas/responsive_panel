@@ -320,4 +320,17 @@ class LocaleProvider extends ChangeNotifier {
       .toString();
   String get search =>
       dotenv.env[currentLocaleMode.isEn ? 'searchEn' : 'searchFa'].toString();
+  String get clearSearch =>
+      dotenv.env[currentLocaleMode.isEn ? 'clearSearchEn' : 'clearSearchFa']
+          .toString();
+  String get actions =>
+      dotenv.env[currentLocaleMode.isEn ? 'actionsEn' : 'actionsFa'].toString();
+  String get employee =>
+      dotenv.env[currentLocaleMode.isEn ? 'employeeEn' : 'employeeFa']
+          .toString();
+  String get title =>
+      dotenv.env[currentLocaleMode.isEn ? 'titleEn' : 'titleFa'].toString();
+  String get description =>
+      dotenv.env[currentLocaleMode.isEn ? 'descriptionEn' : 'descriptionFa']
+          .toString();
 }

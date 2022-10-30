@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 
 Widget tableItemWidget(
-        {String? title,
+        {required double? width,
+          String? title,
         Widget? actions,
         Color? fontColor,
         String? fontFamily}) =>
     SizedBox(
-      width: 60,
+      width: width,
       child: actions ?? Text(
         title ?? '',
         textAlign: TextAlign.center,

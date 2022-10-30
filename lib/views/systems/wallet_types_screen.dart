@@ -11,6 +11,7 @@ import 'package:wallet_core_managment/views/my_widgets/my_button.dart';
 import 'package:wallet_core_managment/views/my_widgets/my_text_form_field.dart';
 
 import '../../models/tree_test_model.dart';
+import '../my_widgets/custom_modal.dart';
 import '../my_widgets/my_check_box_title.dart';
 import '../my_widgets/topic_selector.dart';
 import '../my_widgets/tree_view/tree_group_widget.dart';
@@ -222,11 +223,9 @@ class _WalletTypesScreenState extends State<WalletTypesScreen> {
                               });
                             }
                           : null,
-                      width: 60,
                       backgroundColor: _themeProvider.greenColor,
                       title: _localeProvider.save),
                   MyButton(
-                      width: 60,
                       onPressed: _selectedTreeModel != null
                           ? () {
                               setState(() {
@@ -234,6 +233,7 @@ class _WalletTypesScreenState extends State<WalletTypesScreen> {
                               });
                             }
                           : null,
+                      backgroundColor: _themeProvider.yellowColor,
                       title: _localeProvider.cancel),
                 ],
               ),
@@ -292,7 +292,6 @@ class _WalletTypesScreenState extends State<WalletTypesScreen> {
                       });
                     }
                   : null,
-              width: 60,
               title: _localeProvider.neww),
           MyButton(
               onPressed: _selectedTreeModel != null
@@ -305,10 +304,8 @@ class _WalletTypesScreenState extends State<WalletTypesScreen> {
               title: _localeProvider.showOrEdit),
           MyButton(
               onPressed: _selectedTreeModel != null
-                  ? () => deleteDialog(context,
-                      desc: _selectedTreeModel!.title)
+                  ? () => deleteDialog(context, desc: _selectedTreeModel!.title)
                   : null,
-              width: 60,
               backgroundColor: _themeProvider.orangeColor,
               title: _localeProvider.delete),
         ],

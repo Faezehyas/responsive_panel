@@ -30,7 +30,7 @@ class _TopicSelectorState extends State<TopicSelector> {
               labelText: widget.codeLabelText,
               textDirection: _localeProvider.textDirection,
               maxLength: 9,
-              width: 180,
+              width: 160,
               suffixIcon: IconTheme(
                 data: IconThemeData(color: _themeProvider.primaryColor),
                 child: const Icon(

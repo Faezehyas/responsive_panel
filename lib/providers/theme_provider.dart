@@ -1,3 +1,4 @@
+import 'package:wallet_core_managment/utils/extension.dart';
 import 'package:wallet_core_managment/utils/user_infos.dart';
 import 'package:flutter/material.dart';
 
@@ -15,7 +16,7 @@ class ThemeProvider extends ChangeNotifier {
   }
 
   void changeTheme(BuildContext context, MyThemeMode themeMode) {
-    if (themeMode == MyThemeMode.dark) {
+    if (themeMode.isDark) {
       myTheme = MyDarkTheme.data;
     } else {
       myTheme = MyLightTheme.data;
@@ -33,31 +34,31 @@ class ThemeProvider extends ChangeNotifier {
   Color get yellowColor => MyDarkTheme.instance.colors.yellowColor;
   Color get orangeColor => MyDarkTheme.instance.colors.orangeColor;
 
-  Color get backgroundColor => currentThemeMode == MyThemeMode.dark
+  Color get backgroundColor => currentThemeMode.isDark
       ? MyDarkTheme.instance.colors.backgroundColor
       : MyLightTheme.instance.colors.backgroundColor;
 
-  Color get boxColor1 => currentThemeMode == MyThemeMode.dark
+  Color get boxColor1 => currentThemeMode.isDark
       ? MyDarkTheme.instance.colors.boxColor1
       : MyLightTheme.instance.colors.boxColor1;
 
-  Color get boxColor2 => currentThemeMode == MyThemeMode.dark
+  Color get boxColor2 => currentThemeMode.isDark
       ? MyDarkTheme.instance.colors.boxColor2
       : MyLightTheme.instance.colors.boxColor2;
 
-  Color get boxColor3 => currentThemeMode == MyThemeMode.dark
+  Color get boxColor3 => currentThemeMode.isDark
       ? MyDarkTheme.instance.colors.boxColor3
       : MyLightTheme.instance.colors.boxColor3;
 
-  Color get fontColor1 => currentThemeMode == MyThemeMode.dark
+  Color get fontColor1 => currentThemeMode.isDark
       ? MyDarkTheme.instance.colors.fontColor1
       : MyLightTheme.instance.colors.fontColor1;
 
-  Color get fontColor2 => currentThemeMode == MyThemeMode.dark
+  Color get fontColor2 => currentThemeMode.isDark
       ? MyDarkTheme.instance.colors.fontColor2
       : MyLightTheme.instance.colors.fontColor2;
 
-  Color get fontColor3 => currentThemeMode == MyThemeMode.dark
+  Color get fontColor3 => currentThemeMode.isDark
       ? MyDarkTheme.instance.colors.fontColor3
       : MyLightTheme.instance.colors.fontColor3;
 }

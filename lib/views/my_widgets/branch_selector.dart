@@ -29,8 +29,8 @@ class _BranchSelectorState extends State<BranchSelector> {
             MyTextFormField(
               labelText: widget.codeLabelText,
               textDirection: _localeProvider.textDirection,
-              maxLength: 9,
-              width: 180,
+              maxLength: 7,
+              width: 150,
               suffixIcon: IconTheme(
                 data: IconThemeData(color: _themeProvider.primaryColor),
                 child: const Icon(
