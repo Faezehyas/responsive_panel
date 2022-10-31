@@ -40,6 +40,7 @@ class MyDropDown<Type> extends StatelessWidget {
             decoration: InputDecoration(
                 labelText: labelText,
                 labelStyle: TextStyle(
+                  fontSize: 12,
                     fontFamily:
                         context.read<LocaleProvider>().regularFontFamily)),
             focusColor: focusColor,

@@ -75,22 +75,8 @@ class _UserManagmentScreenState extends State<UserManagmentScreen> {
                           FormSubTitle(
                             title: _localeProvider.search,
                           ),
-                          InkWell(
+                          NewCircleBtn(
                             onTap: () => setState(() => _isNew = true),
-                            mouseCursor: SystemMouseCursors.click,
-                            child: Container(
-                              width: 26,
-                              height: 26,
-                              decoration: BoxDecoration(
-                                  color: _themeProvider.secondryColor,
-                                  shape: BoxShape.circle),
-                              child: const Center(
-                                child: Icon(
-                                  Icons.add,
-                                  color: Colors.white,
-                                ),
-                              ),
-                            ),
                           )
                         ],
                       ),
@@ -261,22 +247,22 @@ class _UserManagmentScreenState extends State<UserManagmentScreen> {
               ? _themeProvider.boxColor1
               : _themeProvider.backgroundColor,
           headers: [
-            tableItemWidget(
+            MyTableItemWidget(
                 width: 40,
                 title: '#',
                 fontColor: _themeProvider.fontColor3,
                 fontFamily: _localeProvider.boldFontFamily),
-            tableItemWidget(
+            MyTableItemWidget(
                 width: 110,
                 title: _localeProvider.title,
                 fontColor: _themeProvider.fontColor3,
                 fontFamily: _localeProvider.boldFontFamily),
-            tableItemWidget(
+            MyTableItemWidget(
                 width: 160,
                 title: _localeProvider.description,
                 fontColor: _themeProvider.fontColor3,
                 fontFamily: _localeProvider.boldFontFamily),
-            tableItemWidget(
+            MyTableItemWidget(
                 width: 60,
                 title: _localeProvider.actions,
                 fontColor: _themeProvider.fontColor3,
@@ -284,22 +270,11 @@ class _UserManagmentScreenState extends State<UserManagmentScreen> {
           ],
           data: _positionList
               .map((e) => [
-                    tableItemWidget(
-                        width: 40,
-                        title: (e.count! + 1).toString(),
-                        fontColor: _themeProvider.fontColor3,
-                        fontFamily: _localeProvider.regularFontFamily),
-                    tableItemWidget(
-                        width: 110,
-                        title: e.branchName,
-                        fontColor: _themeProvider.fontColor3,
-                        fontFamily: _localeProvider.regularFontFamily),
-                    tableItemWidget(
-                        width: 160,
-                        title: e.employeeName,
-                        fontColor: _themeProvider.fontColor3,
-                        fontFamily: _localeProvider.regularFontFamily),
-                    tableItemWidget(
+                    MyTableItemWidget(
+                        width: 40, title: (e.count! + 1).toString()),
+                    MyTableItemWidget(width: 110, title: e.branchName),
+                    MyTableItemWidget(width: 160, title: e.employeeName),
+                    MyTableItemWidget(
                         width: 60,
                         actions: ActionWidgets(
                           onTap: () =>
@@ -429,62 +404,36 @@ class _UserManagmentScreenState extends State<UserManagmentScreen> {
         ),
         Expanded(
             child: MyTableWidget(
-          headerBackgroundColor: _themeProvider.currentThemeMode.isDark
-              ? _themeProvider.fontColor1
-              : _themeProvider.boxColor2,
-          oddBackgrounColor: _themeProvider.currentThemeMode.isDark
-              ? _themeProvider.boxColor1
-              : _themeProvider.backgroundColor,
           headers: [
-            tableItemWidget(
+            MyTableItemWidget(
                 width: 40,
                 title: '#',
-                fontColor: _themeProvider.fontColor3,
                 fontFamily: _localeProvider.boldFontFamily),
-            tableItemWidget(
+            MyTableItemWidget(
                 width: 110,
                 title: _localeProvider.employeeCode,
-                fontColor: _themeProvider.fontColor3,
                 fontFamily: _localeProvider.boldFontFamily),
-            tableItemWidget(
+            MyTableItemWidget(
                 width: 160,
                 title: _localeProvider.employeeName,
-                fontColor: _themeProvider.fontColor3,
                 fontFamily: _localeProvider.boldFontFamily),
-            tableItemWidget(
+            MyTableItemWidget(
                 width: 160,
                 title: _localeProvider.branchName,
-                fontColor: _themeProvider.fontColor3,
                 fontFamily: _localeProvider.boldFontFamily),
-            tableItemWidget(
+            MyTableItemWidget(
                 width: 100,
                 title: _localeProvider.actions,
-                fontColor: _themeProvider.fontColor3,
                 fontFamily: _localeProvider.boldFontFamily)
           ],
           data: _emplyeeList
               .map((e) => [
-                    tableItemWidget(
-                        width: 40,
-                        title: (e.count! + 1).toString(),
-                        fontColor: _themeProvider.fontColor3,
-                        fontFamily: _localeProvider.regularFontFamily),
-                    tableItemWidget(
-                        width: 110,
-                        title: e.employeeCode,
-                        fontColor: _themeProvider.fontColor3,
-                        fontFamily: _localeProvider.regularFontFamily),
-                    tableItemWidget(
-                        width: 160,
-                        title: e.employeeName,
-                        fontColor: _themeProvider.fontColor3,
-                        fontFamily: _localeProvider.regularFontFamily),
-                    tableItemWidget(
-                        width: 160,
-                        title: e.branchName,
-                        fontColor: _themeProvider.fontColor3,
-                        fontFamily: _localeProvider.regularFontFamily),
-                    tableItemWidget(
+                    MyTableItemWidget(
+                        width: 40, title: (e.count! + 1).toString()),
+                    MyTableItemWidget(width: 110, title: e.employeeCode),
+                    MyTableItemWidget(width: 160, title: e.employeeName),
+                    MyTableItemWidget(width: 160, title: e.branchName),
+                    MyTableItemWidget(
                         width: 100,
                         actions: Wrap(
                           spacing: 8,

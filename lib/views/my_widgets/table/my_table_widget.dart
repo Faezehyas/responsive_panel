@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:wallet_core_managment/providers/theme_provider.dart';
+import 'package:wallet_core_managment/utils/extension.dart';
 
 class MyTableWidget extends StatelessWidget {
   Color? headerBackgroundColor;
@@ -27,7 +30,10 @@ class MyTableWidget extends StatelessWidget {
                 padding: EdgeInsets.all(12),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
-                  color: headerBackgroundColor,
+                  color: headerBackgroundColor ??
+                      (context.read<ThemeProvider>().currentThemeMode.isDark
+                          ? context.read<ThemeProvider>().fontColor1
+                          : context.read<ThemeProvider>().boxColor2),
                 ),
                 child: Row(
                   children: headers,
@@ -40,7 +46,17 @@ class MyTableWidget extends StatelessWidget {
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10),
                             color: data!.indexOf(e).isOdd
-                                ? oddBackgrounColor
+                                ? (oddBackgrounColor ??
+                                    (context
+                                            .read<ThemeProvider>()
+                                            .currentThemeMode
+                                            .isDark
+                                        ? context
+                                            .read<ThemeProvider>()
+                                            .boxColor1
+                                        : context
+                                            .read<ThemeProvider>()
+                                            .backgroundColor))
                                 : null,
                           ),
                           child: Row(

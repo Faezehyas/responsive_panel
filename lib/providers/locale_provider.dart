@@ -355,4 +355,70 @@ class LocaleProvider extends ChangeNotifier {
           ? 'listOfAvailableTopicsEn'
           : 'listOfAvailableTopicsFa']
       .toString();
+  String get sourceBranch =>
+      dotenv.env[currentLocaleMode.isEn ? 'sourceBranchEn' : 'sourceBranchFa']
+          .toString();
+  String get targetBranch =>
+      dotenv.env[currentLocaleMode.isEn ? 'targetBranchEn' : 'targetBranchFa']
+          .toString();
+  String get transactionType => dotenv
+      .env[currentLocaleMode.isEn ? 'transactionTypeEn' : 'transactionTypeFa']
+      .toString();
+  String get userType =>
+      dotenv.env[currentLocaleMode.isEn ? 'userTypeEn' : 'userTypeFa']
+          .toString();
+  String get limitationType => dotenv
+      .env[currentLocaleMode.isEn ? 'limitationTypeEn' : 'limitationTypeFa']
+      .toString();
+  String get status =>
+      dotenv.env[currentLocaleMode.isEn ? 'statusEn' : 'statusFa'].toString();
+  String get minimumAmountFrom => dotenv.env[currentLocaleMode.isEn
+          ? 'minimumAmountFromEn'
+          : 'minimumAmountFromFa']
+      .toString();
+  String get to =>
+      dotenv.env[currentLocaleMode.isEn ? 'toEn' : 'toFa'].toString();
+  String get maximumAmountFrom => dotenv.env[currentLocaleMode.isEn
+          ? 'maximumAmountFromEn'
+          : 'maximumAmountFromFa']
+      .toString();
+  String get userGroup =>
+      dotenv.env[currentLocaleMode.isEn ? 'userGroupEn' : 'userGroupFa']
+          .toString();
+  String get needToValidation => dotenv
+      .env[currentLocaleMode.isEn ? 'needToValidationEn' : 'needToValidationFa']
+      .toString();
+  String get minimumAmountValidation => dotenv.env[currentLocaleMode.isEn
+          ? 'minimumAmountValidationEn'
+          : 'minimumAmountValidationFa']
+      .toString();
+  String get excelReport =>
+      dotenv.env[currentLocaleMode.isEn ? 'excelReportEn' : 'excelReportFa']
+          .toString();
+  String get sourceAccountType => dotenv.env[currentLocaleMode.isEn
+          ? 'sourceAccountTypeEn'
+          : 'sourceAccountTypeFa']
+      .toString();
+  String get targetAccountType => dotenv.env[currentLocaleMode.isEn
+          ? 'targetAccountTypeEn'
+          : 'targetAccountTypeFa']
+      .toString();
+  String get minimumAmountAllowed => dotenv.env[currentLocaleMode.isEn
+          ? 'minimumAmountAllowedEn'
+          : 'minimumAmountAllowedFa']
+      .toString();
+  String get maximumAmountAllowed => dotenv.env[currentLocaleMode.isEn
+          ? 'maximumAmountAllowedEn'
+          : 'maximumAmountAllowedFa']
+      .toString();
+  String get minimumAmount =>
+      dotenv.env[currentLocaleMode.isEn ? 'minimumAmountEn' : 'minimumAmountFa']
+          .toString();
+  String get maximumAmount =>
+      dotenv.env[currentLocaleMode.isEn ? 'maximumAmountEn' : 'maximumAmountFa']
+          .toString();
+  String get transactionCountAllowed => dotenv.env[currentLocaleMode.isEn
+          ? 'transactionCountAllowedEn'
+          : 'transactionCountAllowedFa']
+      .toString();
 }
