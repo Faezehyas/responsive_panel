@@ -1,32 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:wallet_core_managment/utils/extension.dart';
-import 'package:wallet_core_managment/views/my_widgets/amount_widget.dart';
-import 'package:wallet_core_managment/views/my_widgets/branch_selector.dart';
+import 'package:wallet_core_managment/views/my_widgets/account_number_selector.dart';
 import 'package:wallet_core_managment/views/my_widgets/my_button.dart';
-import 'package:wallet_core_managment/views/my_widgets/my_check_box_title.dart';
-import 'package:wallet_core_managment/views/my_widgets/my_drop_down.dart';
-import 'package:wallet_core_managment/views/my_widgets/my_text_form_field.dart';
-import 'package:wallet_core_managment/views/my_widgets/table/my_table_widget.dart';
-import 'package:wallet_core_managment/views/my_widgets/table/table_item_widget.dart';
 
 import '../../providers/locale_provider.dart';
 import '../../providers/theme_provider.dart';
 import '../../utils/responsive.dart';
+import '../my_widgets/amount_widget.dart';
+import '../my_widgets/branch_selector.dart';
 import '../my_widgets/mini_widgets.dart';
+import '../my_widgets/my_check_box_title.dart';
+import '../my_widgets/my_drop_down.dart';
+import '../my_widgets/my_text_form_field.dart';
+import '../my_widgets/table/my_table_widget.dart';
+import '../my_widgets/table/table_item_widget.dart';
 
-class TransactionLimitationScreen extends StatefulWidget {
-  const TransactionLimitationScreen({super.key});
+class CommisionSettingScreen extends StatefulWidget {
+  const CommisionSettingScreen({super.key});
 
-  static const route = '/transaction-limitation';
+  static const route = '/commission-setting';
 
   @override
-  State<TransactionLimitationScreen> createState() =>
-      _TransactionLimitationScreenState();
+  State<CommisionSettingScreen> createState() => _CommisionSettingScreenState();
 }
 
-class _TransactionLimitationScreenState
-    extends State<TransactionLimitationScreen> {
+class _CommisionSettingScreenState extends State<CommisionSettingScreen> {
   LocaleProvider _localeProvider = LocaleProvider();
   ThemeProvider _themeProvider = ThemeProvider();
   bool _editOrNew = false;
@@ -86,7 +85,7 @@ class _TransactionLimitationScreenState
         children: [
           BoxContainer(
             child: SizedBox(
-              height: Responsive.isMobile(context) ? 120.h() : 70.h(),
+              height: Responsive.isMobile(context) ? 130.h() : 70.h(),
               child: _firstForm(),
             ),
           ),
@@ -162,11 +161,13 @@ class _TransactionLimitationScreenState
       child: ListView(
         children: [
           BranchSelector(
-              codeLabelText: _localeProvider.sourceBranch, descLabelText: ''),
-          BranchSelector(
-              codeLabelText: _localeProvider.targetBranch, descLabelText: ''),
+              codeLabelText: _localeProvider.sourceBranch,
+              descLabelText: _localeProvider.branchName),
+          AccountNumberSelector(
+              codeLabelText: _localeProvider.targetAccountNumber,
+              descLabelText: _localeProvider.targetAccountName),
           const SizedBox(
-            height: 16,
+            height: 4,
           ),
           Wrap(
             spacing: 12,
@@ -182,7 +183,7 @@ class _TransactionLimitationScreenState
                 width: 240,
               ),
               MyDropDown(
-                labelText: _localeProvider.limitationType,
+                labelText: _localeProvider.walletType,
                 width: 170,
               ),
               MyDropDown(
@@ -190,12 +191,16 @@ class _TransactionLimitationScreenState
                 width: 100,
               ),
               MyDropDown(
-                labelText: _localeProvider.sourceAccountType,
+                labelText: _localeProvider.commisionType,
                 width: 160,
               ),
               MyDropDown(
                 labelText: _localeProvider.targetAccountType,
                 width: 160,
+              ),
+              MyTextFormField(
+                labelText: _localeProvider.commisionValue,
+                width: 200,
               ),
               AmountWidget(
                 labelText: _localeProvider.minimumAmount,
@@ -206,20 +211,16 @@ class _TransactionLimitationScreenState
                 width: 200,
               ),
               MyTextFormField(
-                labelText: _localeProvider.transactionCountAllowed,
+                labelText: _localeProvider.channel,
                 width: 100,
               ),
-              MyDropDown(
-                labelText: _localeProvider.status,
+              MyTextFormField(
+                labelText: _localeProvider.media,
                 width: 100,
               ),
-              MyCheckBoxTitle(
-                label: _localeProvider.needToValidation,
-                width: 200,
-              ),
-              AmountWidget(
-                labelText: _localeProvider.minimumAmountValidation,
-                width: 200,
+              MyTextFormField(
+                labelText: _localeProvider.userGroup,
+                width: 100,
               ),
             ],
           ),
@@ -277,64 +278,68 @@ class _TransactionLimitationScreenState
               fontFamily: _localeProvider.boldFontFamily),
           MyTableItemWidget(
               width: 120,
-              title: _localeProvider.sourceBranch,
-              fontFamily: _localeProvider.boldFontFamily),
-          MyTableItemWidget(
-              width: 120,
-              title: _localeProvider.targetBranch,
-              fontFamily: _localeProvider.boldFontFamily),
-          MyTableItemWidget(
-              width: 120,
               title: _localeProvider.transactionType,
               fontFamily: _localeProvider.boldFontFamily),
           MyTableItemWidget(
-              width: 120,
-              title: _localeProvider.limitationType,
+              width: 116,
+              title: _localeProvider.branchCode,
               fontFamily: _localeProvider.boldFontFamily),
           MyTableItemWidget(
-              width: 80,
+              width: 140,
+              title: _localeProvider.targetAccountNumber,
+              fontFamily: _localeProvider.boldFontFamily),
+          MyTableItemWidget(
+              width: 120,
               title: _localeProvider.userType,
               fontFamily: _localeProvider.boldFontFamily),
           MyTableItemWidget(
               width: 120,
-              title: _localeProvider.sourceAccountType,
+              title: _localeProvider.walletType,
+              fontFamily: _localeProvider.boldFontFamily),
+          MyTableItemWidget(
+              width: 70,
+              title: _localeProvider.userGroup,
               fontFamily: _localeProvider.boldFontFamily),
           MyTableItemWidget(
               width: 120,
-              title: _localeProvider.targetAccountType,
+              title: _localeProvider.commisionType,
               fontFamily: _localeProvider.boldFontFamily),
           MyTableItemWidget(
-              width: 160,
-              title: _localeProvider.minimumAmountAllowed,
+              width: 120,
+              title: _localeProvider.commisionValue,
               fontFamily: _localeProvider.boldFontFamily),
           MyTableItemWidget(
-              width: 160,
-              title: _localeProvider.maximumAmountAllowed,
+              width: 90,
+              title: _localeProvider.minimumAmount,
               fontFamily: _localeProvider.boldFontFamily),
           MyTableItemWidget(
-              width: 160,
-              title: _localeProvider.transactionCountAllowed,
+              width: 120,
+              title: _localeProvider.maximumAmount,
               fontFamily: _localeProvider.boldFontFamily),
           MyTableItemWidget(
-              width: 100,
-              title: _localeProvider.userGroup,
+              width: 120,
+              title: _localeProvider.date,
+              fontFamily: _localeProvider.boldFontFamily),
+          MyTableItemWidget(
+              width: 80,
+              title: _localeProvider.channel,
+              fontFamily: _localeProvider.boldFontFamily),
+          MyTableItemWidget(
+              width: 80,
+              title: _localeProvider.media,
               fontFamily: _localeProvider.boldFontFamily),
           MyTableItemWidget(
               width: 80,
               title: _localeProvider.status,
               fontFamily: _localeProvider.boldFontFamily),
           MyTableItemWidget(
-              width: 100,
-              title: _localeProvider.needToValidation,
-              fontFamily: _localeProvider.boldFontFamily),
-          MyTableItemWidget(
-              width: 160,
-              title: _localeProvider.minimumAmountValidation,
+              width: 120,
+              title: _localeProvider.insertedUserCode,
               fontFamily: _localeProvider.boldFontFamily),
           MyTableItemWidget(
               width: 80,
               title: _localeProvider.actions,
-              fontFamily: _localeProvider.boldFontFamily)
+              fontFamily: _localeProvider.boldFontFamily),
         ],
         data: List.generate(
             20,
@@ -345,59 +350,63 @@ class _TransactionLimitationScreenState
                   ),
                   MyTableItemWidget(
                     width: 120,
-                    title: '6703005',
+                    title: 'Transfer',
                   ),
                   MyTableItemWidget(
-                    width: 120,
+                    width: 116,
                     title: '6703010',
                   ),
                   MyTableItemWidget(
+                    width: 140,
+                    title: '6703005-1000020002-1',
+                  ),
+                  MyTableItemWidget(
                     width: 120,
-                    title: 'Transfer',
+                    title: 'Customer',
                   ),
                   MyTableItemWidget(
                     width: 120,
                     title: 'Normal',
                   ),
                   MyTableItemWidget(
-                    width: 80,
-                    title: 'Customer',
-                  ),
-                  MyTableItemWidget(
-                    width: 120,
+                    width: 70,
                     title: '1',
                   ),
                   MyTableItemWidget(
                     width: 120,
-                    title: '2',
+                    title: 'Count base',
                   ),
                   MyTableItemWidget(
-                    width: 160,
-                    title: '0',
+                    width: 120,
+                    title: '8',
                   ),
                   MyTableItemWidget(
-                    width: 160,
-                    title: '9,000,000,000',
-                  ),
-                  MyTableItemWidget(
-                    width: 160,
+                    width: 90,
                     title: '100',
                   ),
                   MyTableItemWidget(
-                    width: 100,
-                    title: '2',
+                    width: 120,
+                    title: '9,000,000,000',
+                  ),
+                  MyTableItemWidget(
+                    width: 120,
+                    title: '2022-08-12',
+                  ),
+                  MyTableItemWidget(
+                    width: 80,
+                    title: 'Asturia',
+                  ),
+                  MyTableItemWidget(
+                    width: 80,
+                    title: 'Web',
                   ),
                   MyTableItemWidget(
                     width: 80,
                     title: 'Active',
                   ),
                   MyTableItemWidget(
-                    width: 100,
-                    title: 'Yes',
-                  ),
-                  MyTableItemWidget(
-                    width: 160,
-                    title: '100,000',
+                    width: 120,
+                    title: '9617305',
                   ),
                   MyTableItemWidget(
                     width: 80,
@@ -426,19 +435,20 @@ class _TransactionLimitationScreenState
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        BranchSelector(
+            codeLabelText: _localeProvider.branchCode,
+            descLabelText: _localeProvider.branchName),
+        AccountNumberSelector(
+            codeLabelText: _localeProvider.targetAccountNumber,
+            descLabelText: _localeProvider.targetAccountName),
+        const SizedBox(
+          height: 4,
+        ),
         Wrap(
           crossAxisAlignment: WrapCrossAlignment.center,
           spacing: 16,
           runSpacing: 12,
           children: [
-            BranchSelector(
-                width: 400,
-                codeLabelText: _localeProvider.sourceBranch,
-                descLabelText: ''),
-            BranchSelector(
-                width: 400,
-                codeLabelText: _localeProvider.targetBranch,
-                descLabelText: ''),
             MyDropDown(
               labelText: _localeProvider.userType,
               width: 120,
@@ -448,33 +458,27 @@ class _TransactionLimitationScreenState
               width: 240,
             ),
             MyDropDown(
-              labelText: _localeProvider.limitationType,
+              labelText: _localeProvider.walletType,
               width: 170,
             ),
             MyDropDown(
               labelText: _localeProvider.status,
               width: 80,
             ),
-          ],
-        ),
-        const SizedBox(
-          height: 12,
-        ),
-        Wrap(
-          spacing: 12,
-          runSpacing: 12,
-          crossAxisAlignment: WrapCrossAlignment.center,
-          children: [
             MyTextFormField(
               labelText: _localeProvider.userGroup,
               width: 80,
             ),
-            MyCheckBoxTitle(
-              label: _localeProvider.needToValidation,
+            MyDropDown(
+              labelText: _localeProvider.commisionType,
+              width: 140,
+            ),
+            MyTextFormField(
+              labelText: _localeProvider.commisionValueFrom,
               width: 200,
             ),
-            AmountWidget(
-              labelText: _localeProvider.minimumAmountValidation,
+            MyTextFormField(
+              labelText: _localeProvider.commisionValueTo,
               width: 200,
             )
           ],
@@ -488,7 +492,6 @@ class _TransactionLimitationScreenState
           crossAxisAlignment: WrapCrossAlignment.center,
           children: [
             MyButton(onPressed: () {}, title: _localeProvider.search),
-            MyButton(onPressed: () {}, title: _localeProvider.excelReport),
             MyButton(
               onPressed: () {},
               title: _localeProvider.clearSearch,

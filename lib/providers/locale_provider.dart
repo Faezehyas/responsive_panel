@@ -421,4 +421,39 @@ class LocaleProvider extends ChangeNotifier {
           ? 'transactionCountAllowedEn'
           : 'transactionCountAllowedFa']
       .toString();
+  String get walletType =>
+      dotenv.env[currentLocaleMode.isEn ? 'walletTypeEn' : 'walletTypeFa']
+          .toString();
+  String get commisionType =>
+      dotenv.env[currentLocaleMode.isEn ? 'commisionTypeEn' : 'commisionTypeFa']
+          .toString();
+  String get commisionValueFrom => dotenv.env[currentLocaleMode.isEn
+          ? 'commisionValueFromEn'
+          : 'commisionValueFromFa']
+      .toString();
+  String get commisionValueTo => dotenv
+      .env[currentLocaleMode.isEn ? 'commisionValueToEn' : 'commisionValueToFa']
+      .toString();
+  String get commisionValue => dotenv
+      .env[currentLocaleMode.isEn ? 'commisionValueEn' : 'commisionValueFa']
+      .toString();
+  String get channel =>
+      dotenv.env[currentLocaleMode.isEn ? 'channelEn' : 'channelFa'].toString();
+  String get media =>
+      dotenv.env[currentLocaleMode.isEn ? 'mediaEn' : 'mediaFa'].toString();
+  String get date =>
+      dotenv.env[currentLocaleMode.isEn ? 'dateEn' : 'dateFa'].toString();
+  String get insertedUserCode => dotenv
+      .env[currentLocaleMode.isEn ? 'insertedUserCodeEn' : 'insertedUserCodeFa']
+      .toString();
+  String get targetAccountNumber => dotenv.env[currentLocaleMode.isEn
+          ? 'targetAccountNumberEn'
+          : 'targetAccountNumberFa']
+      .toString();
+  String get number =>
+      dotenv.env[currentLocaleMode.isEn ? 'numberEn' : 'numberFa'].toString();
+  String get targetAccountName => dotenv.env[currentLocaleMode.isEn
+          ? 'targetAccountNameEn'
+          : 'targetAccountNameFa']
+      .toString();
 }
