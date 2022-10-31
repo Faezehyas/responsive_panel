@@ -155,8 +155,8 @@ class NewCircleBtn extends StatelessWidget {
       onTap: onTap,
       mouseCursor: SystemMouseCursors.click,
       child: Container(
-        width: 26,
-        height: 26,
+        width: 28,
+        height: 28,
         decoration: BoxDecoration(
             color: context.read<ThemeProvider>().secondryColor,
             shape: BoxShape.circle),

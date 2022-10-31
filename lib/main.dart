@@ -13,6 +13,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 import 'package:wallet_core_managment/views/systems/accounting_topics_managment_screen.dart';
+import 'package:wallet_core_managment/views/systems/commision_setting_screen.dart';
 import 'package:wallet_core_managment/views/systems/transaction_limitation_screen.dart';
 import 'package:wallet_core_managment/views/systems/user_managment_screen.dart';
 import 'package:wallet_core_managment/views/systems/wallet_types_screen.dart';
@@ -78,38 +79,46 @@ class _MyAppState extends State<MyApp> {
     _mainProvider.updateCurrentRoute(settings.name);
     if (settings.name == SplashScreen.route) {
       return PageRouteBuilder(
-          pageBuilder: (_, __, ___) => SplashScreen(), settings: settings);
+          pageBuilder: (_, __, ___) => const SplashScreen(),
+          settings: settings);
     }
     if (settings.name == LoginScreen.route) {
       return PageRouteBuilder(
-          pageBuilder: (_, __, ___) => LoginScreen(), settings: settings);
+          pageBuilder: (_, __, ___) => const LoginScreen(), settings: settings);
     }
     if (settings.name == DashboardScreen.route) {
       return PageRouteBuilder(
-          pageBuilder: (_, __, ___) => DashboardScreen(), settings: settings);
+          pageBuilder: (_, __, ___) => const DashboardScreen(),
+          settings: settings);
     }
     if (settings.name == InsertRealCustomersScreen.route) {
       return PageRouteBuilder(
-          pageBuilder: (_, __, ___) => InsertRealCustomersScreen(),
+          pageBuilder: (_, __, ___) => const InsertRealCustomersScreen(),
           settings: settings);
     }
     if (settings.name == WalletTypesScreen.route) {
       return PageRouteBuilder(
-          pageBuilder: (_, __, ___) => WalletTypesScreen(), settings: settings);
+          pageBuilder: (_, __, ___) => const WalletTypesScreen(),
+          settings: settings);
     }
     if (settings.name == UserManagmentScreen.route) {
       return PageRouteBuilder(
-          pageBuilder: (_, __, ___) => UserManagmentScreen(),
+          pageBuilder: (_, __, ___) => const UserManagmentScreen(),
           settings: settings);
     }
     if (settings.name == AccountingTopicsManagmentScreen.route) {
       return PageRouteBuilder(
-          pageBuilder: (_, __, ___) => AccountingTopicsManagmentScreen(),
+          pageBuilder: (_, __, ___) => const AccountingTopicsManagmentScreen(),
           settings: settings);
     }
     if (settings.name == TransactionLimitationScreen.route) {
       return PageRouteBuilder(
-          pageBuilder: (_, __, ___) => TransactionLimitationScreen(),
+          pageBuilder: (_, __, ___) => const TransactionLimitationScreen(),
+          settings: settings);
+    }
+    if (settings.name == CommisionSettingScreen.route) {
+      return PageRouteBuilder(
+          pageBuilder: (_, __, ___) => const CommisionSettingScreen(),
           settings: settings);
     }
   }

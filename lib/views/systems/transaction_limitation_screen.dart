@@ -406,10 +406,10 @@ class _TransactionLimitationScreenState
                       iconColor: _themeProvider.primaryColor,
                       tooltipMessage: _localeProvider.edit,
                       onTap: () => setState(() {
-                        _editOrNew = false;
+                        _editOrNew = true;
                         if (!Responsive.isDesktop(context)) {
                           _scrollController.animateTo(
-                            _scrollController.position.minScrollExtent,
+                            _scrollController.position.maxScrollExtent,
                             curve: Curves.easeOut,
                             duration: const Duration(milliseconds: 300),
                           );
@@ -451,60 +451,12 @@ class _TransactionLimitationScreenState
               labelText: _localeProvider.limitationType,
               width: 170,
             ),
-            MyTextFormField(
-              labelText: _localeProvider.userGroup,
+            MyDropDown(
+              labelText: _localeProvider.status,
               width: 80,
             ),
           ],
         ),
-        if (!Responsive.isMobile(context)) ...[
-          const SizedBox(
-            height: 12,
-          ),
-          Wrap(
-            spacing: 24,
-            runSpacing: 12,
-            crossAxisAlignment: WrapCrossAlignment.center,
-            children: [
-              SizedBox(
-                width: 408,
-                child: Row(
-                  children: [
-                    AmountWidget(
-                      labelText: _localeProvider.minimumAmountFrom,
-                      width: 200,
-                    ),
-                    const SizedBox(
-                      width: 8,
-                    ),
-                    AmountWidget(
-                      labelText: _localeProvider.to,
-                      width: 200,
-                    )
-                  ],
-                ),
-              ),
-              SizedBox(
-                width: 408,
-                child: Row(
-                  children: [
-                    AmountWidget(
-                      labelText: _localeProvider.maximumAmountFrom,
-                      width: 200,
-                    ),
-                    const SizedBox(
-                      width: 8,
-                    ),
-                    AmountWidget(
-                      labelText: _localeProvider.to,
-                      width: 200,
-                    )
-                  ],
-                ),
-              ),
-            ],
-          ),
-        ],
         const SizedBox(
           height: 12,
         ),
