@@ -45,7 +45,7 @@ class _CommisionSettingScreenState extends State<CommisionSettingScreen> {
       return Column(
         children: [
           FormTitle(
-              localeProvider.system, localeProvider.transactionLimitation),
+              localeProvider.system, localeProvider.commisionSetting),
           Responsive.isDesktop(context) ? _desktop() : _mobileAndTablet()
         ],
       );
@@ -116,7 +116,7 @@ class _CommisionSettingScreenState extends State<CommisionSettingScreen> {
           Padding(
             padding: const EdgeInsets.only(bottom: 8),
             child: FormSubTitle(
-              title: _localeProvider.showOrEdit,
+              title: _localeProvider.newOrEdit,
             ),
           ),
           _secondFormItems(),
@@ -394,7 +394,7 @@ class _CommisionSettingScreenState extends State<CommisionSettingScreen> {
                   ),
                   MyTableItemWidget(
                     width: 80,
-                    title: 'Asturia',
+                    title: 'Austria',
                   ),
                   MyTableItemWidget(
                     width: 80,

@@ -10,6 +10,7 @@ import 'package:wallet_core_managment/views/dashboard/dashboard_screen.dart';
 import 'package:wallet_core_managment/views/side_menu/side_menu_title_widget.dart';
 import 'package:wallet_core_managment/views/side_menu/sub_menu_title_widget.dart';
 import 'package:wallet_core_managment/views/systems/accounting_topics_managment_screen.dart';
+import 'package:wallet_core_managment/views/systems/branch_managment_screen.dart';
 import 'package:wallet_core_managment/views/systems/commision_setting_screen.dart';
 import 'package:wallet_core_managment/views/systems/transaction_limitation_screen.dart';
 import 'package:wallet_core_managment/views/systems/user_managment_screen.dart';
@@ -313,7 +314,7 @@ class _SideMenuState extends State<SideMenu> {
         AccountingTopicsManagmentScreen.route,
         TransactionLimitationScreen.route,
         CommisionSettingScreen.route,
-        '',
+        BranchManagmentScreen.route,
       ];
 
   List<String> get _systemSubtitles => [

@@ -117,7 +117,7 @@ class _TransactionLimitationScreenState
           Padding(
             padding: const EdgeInsets.only(bottom: 8),
             child: FormSubTitle(
-              title: _localeProvider.showOrEdit,
+              title: _localeProvider.newOrEdit,
             ),
           ),
           _secondFormItems(),

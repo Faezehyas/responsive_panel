@@ -456,4 +456,20 @@ class LocaleProvider extends ChangeNotifier {
           ? 'targetAccountNameEn'
           : 'targetAccountNameFa']
       .toString();
+  String get city =>
+      dotenv.env[currentLocaleMode.isEn ? 'cityEn' : 'cityFa'].toString();
+  String get telephone =>
+      dotenv.env[currentLocaleMode.isEn ? 'telephoneEn' : 'telephoneFa']
+          .toString();
+  String get branchBossName => dotenv
+      .env[currentLocaleMode.isEn ? 'branchBossNameEn' : 'branchBossNameFa']
+      .toString();
+  String get address =>
+      dotenv.env[currentLocaleMode.isEn ? 'addressEn' : 'addressFa'].toString();
+  String get listOfBranchs =>
+      dotenv.env[currentLocaleMode.isEn ? 'listOfBranchsEn' : 'listOfBranchsFa']
+          .toString();
+  String get newOrEdit =>
+      dotenv.env[currentLocaleMode.isEn ? 'newOrEditEn' : 'newOrEditFa']
+          .toString();
 }
