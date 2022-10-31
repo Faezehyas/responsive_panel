@@ -29,9 +29,8 @@ class ActionWidgets extends StatelessWidget {
       child: Tooltip(
         message: tooltipMessage,
         decoration: BoxDecoration(
-          color: context.read<ThemeProvider>().fontColor3,
-          borderRadius: BorderRadius.circular(8)
-        ),
+            color: context.read<ThemeProvider>().fontColor3,
+            borderRadius: BorderRadius.circular(8)),
         textStyle: TextStyle(
             fontFamily: context.read<LocaleProvider>().regularFontFamily,
             color: context.read<ThemeProvider>().boxColor3),
@@ -146,3 +145,28 @@ class FormTitle extends StatelessWidget {
   }
 }
 
+class NewCircleBtn extends StatelessWidget {
+  void Function()? onTap;
+  NewCircleBtn({this.onTap,super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: onTap,
+      mouseCursor: SystemMouseCursors.click,
+      child: Container(
+        width: 26,
+        height: 26,
+        decoration: BoxDecoration(
+            color: context.read<ThemeProvider>().secondryColor,
+            shape: BoxShape.circle),
+        child: const Center(
+          child: Icon(
+            Icons.add,
+            color: Colors.white,
+          ),
+        ),
+      ),
+    );
+  }
+}

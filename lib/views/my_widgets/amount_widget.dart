@@ -6,8 +6,10 @@ import 'package:wallet_core_managment/views/my_widgets/my_text_form_field.dart';
 
 class AmountWidget extends StatefulWidget {
   String labelText;
+  double? width;
   AmountWidget({
     required this.labelText,
+    this.width,
     Key? key,
   }) : super(key: key);
 
@@ -22,6 +24,7 @@ class _AmountWidgetState extends State<AmountWidget> {
         builder: (context, _localeProvider, _themeProvider, _) {
       return MyTextFormField(
         labelText: widget.labelText,
+        width: widget.width,
         textDirection: _localeProvider.textDirection,
         textAlign: TextAlign.left,
         suffixIcon: Column(

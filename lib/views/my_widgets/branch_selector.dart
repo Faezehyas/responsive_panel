@@ -7,9 +7,11 @@ import 'package:wallet_core_managment/views/my_widgets/my_text_form_field.dart';
 class BranchSelector extends StatefulWidget {
   String codeLabelText;
   String descLabelText;
+  double? width;
   BranchSelector({
     required this.codeLabelText,
     required this.descLabelText,
+    this.width,
     Key? key,
   }) : super(key: key);
 
@@ -22,8 +24,9 @@ class _BranchSelectorState extends State<BranchSelector> {
   Widget build(BuildContext context) {
     return Consumer2<LocaleProvider, ThemeProvider>(
         builder: (context, _localeProvider, _themeProvider, _) {
-      return Padding(
+      return Container(
         padding: const EdgeInsets.symmetric(vertical: 6),
+        width: widget.width,
         child: Row(
           children: [
             MyTextFormField(

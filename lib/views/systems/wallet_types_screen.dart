@@ -131,7 +131,7 @@ class _WalletTypesScreenState extends State<WalletTypesScreen> {
             Padding(
               padding: const EdgeInsets.only(bottom: 16),
               child: FormSubTitle(
-                title: _localeProvider.details,
+                title: _localeProvider.showOrEdit,
               ),
             ),
             ..._walletTitlesDetails,

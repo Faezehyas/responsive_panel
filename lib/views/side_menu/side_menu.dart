@@ -10,6 +10,7 @@ import 'package:wallet_core_managment/views/dashboard/dashboard_screen.dart';
 import 'package:wallet_core_managment/views/side_menu/side_menu_title_widget.dart';
 import 'package:wallet_core_managment/views/side_menu/sub_menu_title_widget.dart';
 import 'package:wallet_core_managment/views/systems/accounting_topics_managment_screen.dart';
+import 'package:wallet_core_managment/views/systems/transaction_limitation_screen.dart';
 import 'package:wallet_core_managment/views/systems/user_managment_screen.dart';
 import 'package:wallet_core_managment/views/systems/wallet_types_screen.dart';
 
@@ -308,9 +309,8 @@ class _SideMenuState extends State<SideMenu> {
   List<String> get _systemRoutes => [
         WalletTypesScreen.route,
         UserManagmentScreen.route,
-        '',
         AccountingTopicsManagmentScreen.route,
-        '',
+        TransactionLimitationScreen.route,
         '',
         '',
       ];
@@ -318,7 +318,6 @@ class _SideMenuState extends State<SideMenu> {
   List<String> get _systemSubtitles => [
         _localeProvider.walletTypes,
         _localeProvider.userManagement,
-        _localeProvider.specialTopicsManagment,
         _localeProvider.accountingTopicsManagment,
         _localeProvider.transactionLimitation,
         _localeProvider.commisionSetting,

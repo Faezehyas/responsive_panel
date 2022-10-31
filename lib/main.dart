@@ -13,6 +13,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 import 'package:wallet_core_managment/views/systems/accounting_topics_managment_screen.dart';
+import 'package:wallet_core_managment/views/systems/transaction_limitation_screen.dart';
 import 'package:wallet_core_managment/views/systems/user_managment_screen.dart';
 import 'package:wallet_core_managment/views/systems/wallet_types_screen.dart';
 
@@ -104,6 +105,11 @@ class _MyAppState extends State<MyApp> {
     if (settings.name == AccountingTopicsManagmentScreen.route) {
       return PageRouteBuilder(
           pageBuilder: (_, __, ___) => AccountingTopicsManagmentScreen(),
+          settings: settings);
+    }
+    if (settings.name == TransactionLimitationScreen.route) {
+      return PageRouteBuilder(
+          pageBuilder: (_, __, ___) => TransactionLimitationScreen(),
           settings: settings);
     }
   }
