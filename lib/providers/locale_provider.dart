@@ -38,6 +38,11 @@ class LocaleProvider extends ChangeNotifier {
 
   String get boldFontFamily => currentLocaleMode == MyLocaleMode.fa ? IYB : PB;
 
+  String amountToWrod(int amount) => amount.toString().toWord(
+      lang: currentLocaleMode.isEn
+          ? NumStrLanguage.English
+          : NumStrLanguage.Farsi);
+
   String formatTime(DateTime dateTime) {
     return currentLocaleMode.isEn
         ? intl.DateFormat().add_Hms().format(dateTime)
@@ -498,13 +503,28 @@ class LocaleProvider extends ChangeNotifier {
   String get blockAmount =>
       dotenv.env[currentLocaleMode.isEn ? 'blockAmountEn' : 'blockAmountFa']
           .toString();
-  String get unblockAmount => dotenv
-      .env[currentLocaleMode.isEn ? 'unblockAmountEn' : 'unblockAmountFa']
-      .toString();
+  String get unblockAmount =>
+      dotenv.env[currentLocaleMode.isEn ? 'unblockAmountEn' : 'unblockAmountFa']
+          .toString();
   String get unblock =>
       dotenv.env[currentLocaleMode.isEn ? 'unblockEn' : 'unblockFa'].toString();
   String get block =>
       dotenv.env[currentLocaleMode.isEn ? 'blockEn' : 'blockFa'].toString();
   String get balance =>
       dotenv.env[currentLocaleMode.isEn ? 'balanceEn' : 'balanceFa'].toString();
+  String get cashout =>
+      dotenv.env[currentLocaleMode.isEn ? 'cashoutEn' : 'cashoutFa'].toString();
+  String get source =>
+      dotenv.env[currentLocaleMode.isEn ? 'sourceEn' : 'sourceFa'].toString();
+  String get target =>
+      dotenv.env[currentLocaleMode.isEn ? 'targetEn' : 'targetFa'].toString();
+  String get transferAmount => dotenv
+      .env[currentLocaleMode.isEn ? 'transferAmountEn' : 'transferAmountFa']
+      .toString();
+  String get accountNumber =>
+      dotenv.env[currentLocaleMode.isEn ? 'accountNumberEn' : 'accountNumberFa']
+          .toString();
+  String get cashoutAmount =>
+      dotenv.env[currentLocaleMode.isEn ? 'cashoutAmountEn' : 'cashoutAmountFa']
+          .toString();
 }

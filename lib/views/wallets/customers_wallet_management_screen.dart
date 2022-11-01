@@ -171,10 +171,13 @@ class _CustomersWalletManagementState extends State<CustomersWalletManagement> {
         WalletNumberSelector(
             codeLabelText: _localeProvider.walletNumber,
             descLabelText: _localeProvider.walletName),
+        const SizedBox(
+          height: 4,
+        ),
         Wrap(
           spacing: 12,
           runSpacing: 12,
-          crossAxisAlignment: WrapCrossAlignment.center,
+          crossAxisAlignment: WrapCrossAlignment.start,
           children: [
             AmountWidget(
               width: 200,
@@ -190,6 +193,7 @@ class _CustomersWalletManagementState extends State<CustomersWalletManagement> {
             ),
             AmountWidget(
               width: 200,
+              withWord: true,
               labelText: _blockType == BlockType.Block
                   ? _localeProvider.blockAmount
                   : _localeProvider.unblockAmount,
