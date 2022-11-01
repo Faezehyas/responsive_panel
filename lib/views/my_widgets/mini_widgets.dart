@@ -73,6 +73,56 @@ class BoxContainer extends StatelessWidget {
   }
 }
 
+class GroupBoxContainer extends StatelessWidget {
+  Widget child;
+  EdgeInsetsGeometry? margin;
+  EdgeInsetsGeometry? padding;
+  String title;
+  GroupBoxContainer({
+    required this.title,
+    required this.child,
+    this.margin,
+    this.padding,
+    Key? key,
+    height,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Consumer2<ThemeProvider, LocaleProvider>(
+        builder: (context, themeProvider, localeProvider, _) {
+      return Stack(
+        children: [
+          Container(
+            margin: margin,
+            padding: padding,
+            decoration: BoxDecoration(
+                border: Border.all(color: themeProvider.primaryColor),
+                borderRadius: BorderRadius.circular(8)),
+            child: child,
+          ),
+          Positioned.directional(
+            top: 6,
+            start: 8,
+            textDirection: localeProvider.textDirection,
+            child: Container(
+            color: themeProvider.boxColor3,
+              padding: const EdgeInsets.symmetric(horizontal: 8),
+              child: Text(
+                title,
+                style: TextStyle(
+                    color: themeProvider.fontColor3,
+                    fontFamily: localeProvider.boldFontFamily,
+                    fontSize: 12),
+              ),
+            ),
+          )
+        ],
+      );
+    });
+  }
+}
+
 class FormSubTitle extends StatelessWidget {
   const FormSubTitle({
     Key? key,
@@ -147,7 +197,7 @@ class FormTitle extends StatelessWidget {
 
 class NewCircleBtn extends StatelessWidget {
   void Function()? onTap;
-  NewCircleBtn({this.onTap,super.key});
+  NewCircleBtn({this.onTap, super.key});
 
   @override
   Widget build(BuildContext context) {

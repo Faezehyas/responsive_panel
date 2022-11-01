@@ -18,6 +18,7 @@ import 'package:wallet_core_management/views/systems/transaction_limitation_scre
 import 'package:wallet_core_management/views/systems/user_managment_screen.dart';
 import 'package:wallet_core_management/views/systems/wallet_types_screen.dart';
 import 'package:wallet_core_management/views/wallets/customers_wallet_management_screen.dart';
+import 'package:wallet_core_management/views/wallets/transfer_screen.dart';
 
 Future<void> main() async {
   await dotenv.load();
@@ -130,6 +131,11 @@ class _MyAppState extends State<MyApp> {
     if (settings.name == CustomersWalletManagement.route) {
       return PageRouteBuilder(
           pageBuilder: (_, __, ___) => const CustomersWalletManagement(),
+          settings: settings);
+    }
+    if (settings.name == TransferSceen.route) {
+      return PageRouteBuilder(
+          pageBuilder: (_, __, ___) => const TransferSceen(),
           settings: settings);
     }
   }

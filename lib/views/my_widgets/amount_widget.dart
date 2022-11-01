@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:persian_number_utility/persian_number_utility.dart';
 import 'package:provider/provider.dart';
 import 'package:wallet_core_management/providers/locale_provider.dart';
 import 'package:wallet_core_management/providers/theme_provider.dart';
@@ -34,11 +36,26 @@ class _AmountWidgetState extends State<AmountWidget> {
           MyTextFormField(
             labelText: widget.labelText,
             width: widget.width,
+            keyboardType: TextInputType.phone,
+            inputFormatters: [
+              FilteringTextInputFormatter.digitsOnly,
+              FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))
+            ],
             controller: widget.textEditingController ?? textEditingController,
             textDirection: _localeProvider.textDirection,
             textAlign: TextAlign.left,
             onChanged: (value) {
-              setState(() {});
+              setState(() {
+                (widget.textEditingController ?? textEditingController)!.text =
+                    value.replaceAll(',', '').seRagham();
+                var cursorPos = TextSelection.fromPosition(TextPosition(
+                    offset:
+                        (widget.textEditingController ?? textEditingController)!
+                            .text
+                            .length));
+                (widget.textEditingController ?? textEditingController)!
+                    .selection = cursorPos;
+              });
             },
             suffixIcon: Column(
               mainAxisAlignment: MainAxisAlignment.center,

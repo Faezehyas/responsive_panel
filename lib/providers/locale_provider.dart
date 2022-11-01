@@ -527,4 +527,7 @@ class LocaleProvider extends ChangeNotifier {
   String get cashoutAmount =>
       dotenv.env[currentLocaleMode.isEn ? 'cashoutAmountEn' : 'cashoutAmountFa']
           .toString();
+  String get send =>
+      dotenv.env[currentLocaleMode.isEn ? 'sendEn' : 'sendFa']
+          .toString();
 }

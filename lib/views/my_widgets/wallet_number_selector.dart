@@ -5,11 +5,11 @@ import 'package:wallet_core_management/providers/theme_provider.dart';
 import 'package:wallet_core_management/views/my_widgets/my_text_form_field.dart';
 
 class WalletNumberSelector extends StatefulWidget {
-  String codeLabelText;
-  String descLabelText;
+  String? codeLabelText;
+  String? descLabelText;
   WalletNumberSelector({
-    required this.codeLabelText,
-    required this.descLabelText,
+    this.codeLabelText,
+    this.descLabelText,
     Key? key,
   }) : super(key: key);
 
@@ -94,7 +94,7 @@ class _WalletNumberSelectorState extends State<WalletNumberSelector> {
                   ),
                   MyTextFormField(
                     textDirection: _localeProvider.textDirection,
-                    labelText: widget.descLabelText,
+                    labelText: widget.descLabelText ?? _localeProvider.walletTitle,
                     textAlign: _localeProvider.textAlign,
                     readOnly: true,
                     suffixIcon: const Icon(
@@ -106,14 +106,15 @@ class _WalletNumberSelectorState extends State<WalletNumberSelector> {
               ),
             ),
           ),
-          Positioned(
+          Positioned.directional(
             top: 0,
-            left: 4,
+            start: 4,
+            textDirection: _localeProvider.textDirection,
             child: Container(
-              color: Colors.white,
+              color: _themeProvider.boxColor3,
               padding: EdgeInsets.symmetric(horizontal: 4),
               child: Text(
-                widget.codeLabelText,
+                widget.codeLabelText ?? _localeProvider.walletNumber,
                 style: TextStyle(
                     color: _themeProvider.fontColor3,
                     fontFamily: _localeProvider.boldFontFamily,
