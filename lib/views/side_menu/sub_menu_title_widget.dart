@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:wallet_core_managment/providers/locale_provider.dart';
-import 'package:wallet_core_managment/providers/main_provider.dart';
-import 'package:wallet_core_managment/providers/theme_provider.dart';
-import 'package:wallet_core_managment/utils/my_navigator.dart';
-import 'package:wallet_core_managment/utils/responsive.dart';
+import 'package:wallet_core_management/providers/locale_provider.dart';
+import 'package:wallet_core_management/providers/main_provider.dart';
+import 'package:wallet_core_management/providers/theme_provider.dart';
+import 'package:wallet_core_management/utils/my_navigator.dart';
+import 'package:wallet_core_management/utils/responsive.dart';
 
 class SubMenuTitleWidget extends StatelessWidget {
   final String subtitle;

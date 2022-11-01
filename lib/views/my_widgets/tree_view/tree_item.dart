@@ -1,6 +1,6 @@
 
 import 'package:equatable/equatable.dart';
-import 'package:wallet_core_managment/utils/extension.dart';
+import 'package:wallet_core_management/utils/extension.dart';
 
 class TreeItem<T> extends Equatable {
   final String title;

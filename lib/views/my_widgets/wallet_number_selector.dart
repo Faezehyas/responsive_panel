@@ -4,20 +4,20 @@ import 'package:wallet_core_management/providers/locale_provider.dart';
 import 'package:wallet_core_management/providers/theme_provider.dart';
 import 'package:wallet_core_management/views/my_widgets/my_text_form_field.dart';
 
-class AccountNumberSelector extends StatefulWidget {
+class WalletNumberSelector extends StatefulWidget {
   String codeLabelText;
   String descLabelText;
-  AccountNumberSelector({
+  WalletNumberSelector({
     required this.codeLabelText,
     required this.descLabelText,
     Key? key,
   }) : super(key: key);
 
   @override
-  State<AccountNumberSelector> createState() => _AccountNumberSelectorState();
+  State<WalletNumberSelector> createState() => _WalletNumberSelectorState();
 }
 
-class _AccountNumberSelectorState extends State<AccountNumberSelector> {
+class _WalletNumberSelectorState extends State<WalletNumberSelector> {
   @override
   Widget build(BuildContext context) {
     return Consumer2<LocaleProvider, ThemeProvider>(
@@ -70,7 +70,18 @@ class _AccountNumberSelectorState extends State<AccountNumberSelector> {
               width: 2,
             ),
             MyTextFormField(
-              labelText: _localeProvider.topicCode,
+              labelText: _localeProvider.walletType,
+              textDirection: TextDirection.ltr,
+              maxLength: 2,
+              width: 90,
+              contentPadding:
+                  const EdgeInsetsDirectional.fromSTEB(6, 12, 4, 12),
+            ),
+            const SizedBox(
+              width: 2,
+            ),
+            MyTextFormField(
+              labelText: _localeProvider.customerCode,
               textDirection: TextDirection.ltr,
               maxLength: 10,
               width: 116,

@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:wallet_core_managment/utils/extension.dart';
-import 'package:wallet_core_managment/views/my_widgets/amount_widget.dart';
-import 'package:wallet_core_managment/views/my_widgets/branch_selector.dart';
-import 'package:wallet_core_managment/views/my_widgets/my_button.dart';
-import 'package:wallet_core_managment/views/my_widgets/my_check_box_title.dart';
-import 'package:wallet_core_managment/views/my_widgets/my_drop_down.dart';
-import 'package:wallet_core_managment/views/my_widgets/my_text_form_field.dart';
-import 'package:wallet_core_managment/views/my_widgets/table/my_table_widget.dart';
-import 'package:wallet_core_managment/views/my_widgets/table/table_item_widget.dart';
+import 'package:wallet_core_management/utils/extension.dart';
+import 'package:wallet_core_management/views/my_widgets/amount_widget.dart';
+import 'package:wallet_core_management/views/my_widgets/branch_selector.dart';
+import 'package:wallet_core_management/views/my_widgets/my_button.dart';
+import 'package:wallet_core_management/views/my_widgets/my_check_box_title.dart';
+import 'package:wallet_core_management/views/my_widgets/my_drop_down.dart';
+import 'package:wallet_core_management/views/my_widgets/my_text_form_field.dart';
+import 'package:wallet_core_management/views/my_widgets/table/my_table_widget.dart';
+import 'package:wallet_core_management/views/my_widgets/table/table_item_widget.dart';
 
 import '../../providers/locale_provider.dart';
 import '../../providers/theme_provider.dart';
@@ -117,7 +117,7 @@ class _TransactionLimitationScreenState
           Padding(
             padding: const EdgeInsets.only(bottom: 8),
             child: FormSubTitle(
-              title: _localeProvider.showOrEdit,
+              title: _localeProvider.newOrEdit,
             ),
           ),
           _secondFormItems(),

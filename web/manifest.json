@@ -1,11 +1,11 @@
 {
-    "name": "Wallet Core Managment",
-    "short_name": "Wallet Core Managment",
+    "name": "Wallet Core Management",
+    "short_name": "Wallet Core Management",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "Wallet Core Managment",
+    "description": "Wallet Core Management",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

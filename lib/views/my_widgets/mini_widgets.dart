@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:wallet_core_managment/providers/locale_provider.dart';
-import 'package:wallet_core_managment/providers/theme_provider.dart';
-import 'package:wallet_core_managment/utils/my_navigator.dart';
-import 'package:wallet_core_managment/views/my_widgets/my_button.dart';
+import 'package:wallet_core_management/providers/locale_provider.dart';
+import 'package:wallet_core_management/providers/theme_provider.dart';
+import 'package:wallet_core_management/utils/my_navigator.dart';
+import 'package:wallet_core_management/views/my_widgets/my_button.dart';
 
 class ActionWidgets extends StatelessWidget {
   bool enable;

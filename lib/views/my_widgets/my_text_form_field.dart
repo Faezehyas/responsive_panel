@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
-import 'package:wallet_core_managment/providers/theme_provider.dart';
+import 'package:wallet_core_management/providers/theme_provider.dart';
 
 import '../../providers/locale_provider.dart';
 

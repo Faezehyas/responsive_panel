@@ -1,30 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:wallet_core_managment/providers/locale_provider.dart';
-import 'package:wallet_core_managment/providers/theme_provider.dart';
-import 'package:wallet_core_managment/utils/extension.dart';
-import 'package:wallet_core_managment/utils/responsive.dart';
-import 'package:wallet_core_managment/views/my_widgets/mini_widgets.dart';
-import 'package:wallet_core_managment/views/my_widgets/my_button.dart';
-import 'package:wallet_core_managment/views/my_widgets/my_check_box_title.dart';
-import 'package:wallet_core_managment/views/my_widgets/my_drop_down.dart';
-import 'package:wallet_core_managment/views/my_widgets/my_text_form_field.dart';
+import 'package:wallet_core_management/providers/locale_provider.dart';
+import 'package:wallet_core_management/providers/theme_provider.dart';
+import 'package:wallet_core_management/utils/extension.dart';
+import 'package:wallet_core_management/utils/responsive.dart';
+import 'package:wallet_core_management/views/my_widgets/mini_widgets.dart';
+import 'package:wallet_core_management/views/my_widgets/my_button.dart';
+import 'package:wallet_core_management/views/my_widgets/my_check_box_title.dart';
+import 'package:wallet_core_management/views/my_widgets/my_drop_down.dart';
+import 'package:wallet_core_management/views/my_widgets/my_text_form_field.dart';
 import '../../models/tree_test_model.dart';
 import '../my_widgets/custom_modal.dart';
 import '../my_widgets/tree_view/tree_group_widget.dart';
 
-class AccountingTopicsManagmentScreen extends StatefulWidget {
-  const AccountingTopicsManagmentScreen({super.key});
+class AccountingTopicsManagementScreen extends StatefulWidget {
+  const AccountingTopicsManagementScreen({super.key});
 
-  static const route = '/accounting-topics-managment';
+  static const route = '/accounting-topics-management';
 
   @override
-  State<AccountingTopicsManagmentScreen> createState() =>
-      _AccountingTopicsManagmentScreenState();
+  State<AccountingTopicsManagementScreen> createState() =>
+      _AccountingTopicsManagementScreenState();
 }
 
-class _AccountingTopicsManagmentScreenState
-    extends State<AccountingTopicsManagmentScreen> {
+class _AccountingTopicsManagementScreenState
+    extends State<AccountingTopicsManagementScreen> {
   TreeTestModel? _selectedTreeModel;
   LocaleProvider _localeProvider = LocaleProvider();
   ThemeProvider _themeProvider = ThemeProvider();
@@ -47,7 +47,7 @@ class _AccountingTopicsManagmentScreenState
       return Column(
         children: [
           FormTitle(
-              localeProvider.system, localeProvider.accountingTopicsManagment),
+              localeProvider.system, localeProvider.accountingTopicsManagement),
           !Responsive.isMobile(context) ? _tabletAndDesktop() : _mobile()
         ],
       );

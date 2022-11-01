@@ -1,6 +1,6 @@
 import 'package:persian_number_utility/persian_number_utility.dart';
-import 'package:wallet_core_managment/providers/locale_provider.dart';
-import 'package:wallet_core_managment/utils/utils.dart';
+import 'package:wallet_core_management/providers/locale_provider.dart';
+import 'package:wallet_core_management/utils/utils.dart';
 
 String? nationalCodeValidator(String? value, LocaleProvider localeProvider) {
   if (value == null ||

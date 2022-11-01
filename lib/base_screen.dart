@@ -1,15 +1,15 @@
-import 'package:wallet_core_managment/main.dart';
-import 'package:wallet_core_managment/providers/locale_provider.dart';
-import 'package:wallet_core_managment/providers/main_provider.dart';
-import 'package:wallet_core_managment/providers/theme_provider.dart';
-import 'package:wallet_core_managment/utils/const.dart';
-import 'package:wallet_core_managment/utils/responsive.dart';
-import 'package:wallet_core_managment/views/customers/insert_real_customers_screen.dart';
-import 'package:wallet_core_managment/views/auth/login_Screen.dart';
-import 'package:wallet_core_managment/views/dashboard/dashboard_screen.dart';
-import 'package:wallet_core_managment/views/my_widgets/my_app_bar.dart';
-import 'package:wallet_core_managment/views/side_menu/side_menu.dart';
-import 'package:wallet_core_managment/views/splash_screen.dart';
+import 'package:wallet_core_management/main.dart';
+import 'package:wallet_core_management/providers/locale_provider.dart';
+import 'package:wallet_core_management/providers/main_provider.dart';
+import 'package:wallet_core_management/providers/theme_provider.dart';
+import 'package:wallet_core_management/utils/const.dart';
+import 'package:wallet_core_management/utils/responsive.dart';
+import 'package:wallet_core_management/views/customers/insert_real_customers_screen.dart';
+import 'package:wallet_core_management/views/auth/login_Screen.dart';
+import 'package:wallet_core_management/views/dashboard/dashboard_screen.dart';
+import 'package:wallet_core_management/views/my_widgets/my_app_bar.dart';
+import 'package:wallet_core_management/views/side_menu/side_menu.dart';
+import 'package:wallet_core_management/views/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:wallet_core_managment/providers/locale_provider.dart';
-import 'package:wallet_core_managment/providers/theme_provider.dart';
-import 'package:wallet_core_managment/theme/my_dark_theme.dart';
-import 'package:wallet_core_managment/utils/enums.dart';
-import 'package:wallet_core_managment/utils/my_navigator.dart';
-import 'package:wallet_core_managment/utils/validators.dart';
-import 'package:wallet_core_managment/views/my_widgets/my_text_form_field.dart';
+import 'package:wallet_core_management/providers/locale_provider.dart';
+import 'package:wallet_core_management/providers/theme_provider.dart';
+import 'package:wallet_core_management/theme/my_dark_theme.dart';
+import 'package:wallet_core_management/utils/enums.dart';
+import 'package:wallet_core_management/utils/my_navigator.dart';
+import 'package:wallet_core_management/utils/validators.dart';
+import 'package:wallet_core_management/views/my_widgets/my_text_form_field.dart';
 
 import '../dashboard/dashboard_screen.dart';
 

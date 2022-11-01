@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:wallet_core_managment/providers/locale_provider.dart';
-import 'package:wallet_core_managment/providers/theme_provider.dart';
-import 'package:wallet_core_managment/utils/custom_grid_delegate.dart';
-import 'package:wallet_core_managment/utils/extension.dart';
-import 'package:wallet_core_managment/utils/responsive.dart';
-import 'package:wallet_core_managment/views/my_widgets/amount_widget.dart';
-import 'package:wallet_core_managment/views/my_widgets/mini_widgets.dart';
-import 'package:wallet_core_managment/views/my_widgets/my_button.dart';
-import 'package:wallet_core_managment/views/my_widgets/my_text_form_field.dart';
+import 'package:wallet_core_management/providers/locale_provider.dart';
+import 'package:wallet_core_management/providers/theme_provider.dart';
+import 'package:wallet_core_management/utils/custom_grid_delegate.dart';
+import 'package:wallet_core_management/utils/extension.dart';
+import 'package:wallet_core_management/utils/responsive.dart';
+import 'package:wallet_core_management/views/my_widgets/amount_widget.dart';
+import 'package:wallet_core_management/views/my_widgets/mini_widgets.dart';
+import 'package:wallet_core_management/views/my_widgets/my_button.dart';
+import 'package:wallet_core_management/views/my_widgets/my_text_form_field.dart';
 
 import '../../models/tree_test_model.dart';
 import '../my_widgets/custom_modal.dart';
@@ -131,7 +131,7 @@ class _WalletTypesScreenState extends State<WalletTypesScreen> {
             Padding(
               padding: const EdgeInsets.only(bottom: 16),
               child: FormSubTitle(
-                title: _localeProvider.showOrEdit,
+                title: _localeProvider.newOrEdit,
               ),
             ),
             ..._walletTitlesDetails,

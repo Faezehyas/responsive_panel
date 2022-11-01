@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:wallet_core_managment/views/my_widgets/tree_view/tree_item.dart';
-import 'package:wallet_core_managment/views/my_widgets/tree_view/tree_management_provider.dart';
+import 'package:wallet_core_management/views/my_widgets/tree_view/tree_item.dart';
+import 'package:wallet_core_management/views/my_widgets/tree_view/tree_management_provider.dart';
 import '../../../providers/theme_provider.dart';
 import 'tree_list_widget.dart';
 

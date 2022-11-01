@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:wallet_core_managment/utils/extension.dart';
-import 'package:wallet_core_managment/views/my_widgets/account_number_selector.dart';
-import 'package:wallet_core_managment/views/my_widgets/my_button.dart';
+import 'package:wallet_core_management/utils/extension.dart';
+import 'package:wallet_core_management/views/my_widgets/account_number_selector.dart';
+import 'package:wallet_core_management/views/my_widgets/my_button.dart';
 
 import '../../providers/locale_provider.dart';
 import '../../providers/theme_provider.dart';
@@ -45,7 +45,7 @@ class _CommisionSettingScreenState extends State<CommisionSettingScreen> {
       return Column(
         children: [
           FormTitle(
-              localeProvider.system, localeProvider.transactionLimitation),
+              localeProvider.system, localeProvider.commisionSetting),
           Responsive.isDesktop(context) ? _desktop() : _mobileAndTablet()
         ],
       );
@@ -116,7 +116,7 @@ class _CommisionSettingScreenState extends State<CommisionSettingScreen> {
           Padding(
             padding: const EdgeInsets.only(bottom: 8),
             child: FormSubTitle(
-              title: _localeProvider.showOrEdit,
+              title: _localeProvider.newOrEdit,
             ),
           ),
           _secondFormItems(),
@@ -394,7 +394,7 @@ class _CommisionSettingScreenState extends State<CommisionSettingScreen> {
                   ),
                   MyTableItemWidget(
                     width: 80,
-                    title: 'Asturia',
+                    title: 'Austria',
                   ),
                   MyTableItemWidget(
                     width: 80,
