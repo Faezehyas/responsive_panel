@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:wallet_core_managment/providers/locale_provider.dart';
-import 'package:wallet_core_managment/providers/theme_provider.dart';
-import 'package:wallet_core_managment/utils/enums.dart';
-import 'package:wallet_core_managment/utils/responsive.dart';
-import 'package:wallet_core_managment/views/my_widgets/my_real_time_clock.dart';
+import 'package:wallet_core_management/providers/locale_provider.dart';
+import 'package:wallet_core_management/providers/theme_provider.dart';
+import 'package:wallet_core_management/utils/enums.dart';
+import 'package:wallet_core_management/utils/responsive.dart';
+import 'package:wallet_core_management/views/my_widgets/my_real_time_clock.dart';
 import '../../utils/const.dart';
 import 'dart:math' as math;
 

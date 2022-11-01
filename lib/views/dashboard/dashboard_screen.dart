@@ -1,8 +1,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:wallet_core_managment/providers/locale_provider.dart';
-import 'package:wallet_core_managment/views/my_widgets/mini_widgets.dart';
+import 'package:wallet_core_management/providers/locale_provider.dart';
+import 'package:wallet_core_management/views/my_widgets/mini_widgets.dart';
 
 import '../../providers/theme_provider.dart';
 

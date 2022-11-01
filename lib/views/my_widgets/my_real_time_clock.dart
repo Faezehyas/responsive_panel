@@ -2,11 +2,11 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
-import 'package:wallet_core_managment/providers/locale_provider.dart';
-import 'package:wallet_core_managment/providers/theme_provider.dart';
-import 'package:wallet_core_managment/utils/enums.dart';
+import 'package:wallet_core_management/providers/locale_provider.dart';
+import 'package:wallet_core_management/providers/theme_provider.dart';
+import 'package:wallet_core_management/utils/enums.dart';
 import 'package:persian_number_utility/persian_number_utility.dart';
-import 'package:wallet_core_managment/utils/responsive.dart';
+import 'package:wallet_core_management/utils/responsive.dart';
 
 class RealTimeClock extends StatefulWidget {
   const RealTimeClock({super.key});

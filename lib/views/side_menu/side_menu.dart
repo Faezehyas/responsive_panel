@@ -1,20 +1,21 @@
-import 'package:wallet_core_managment/main.dart';
-import 'package:wallet_core_managment/providers/locale_provider.dart';
-import 'package:wallet_core_managment/providers/theme_provider.dart';
+import 'package:wallet_core_management/providers/locale_provider.dart';
+import 'package:wallet_core_management/providers/theme_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:wallet_core_managment/utils/const.dart';
-import 'package:wallet_core_managment/utils/my_navigator.dart';
-import 'package:wallet_core_managment/views/customers/insert_real_customers_screen.dart';
-import 'package:wallet_core_managment/views/dashboard/dashboard_screen.dart';
-import 'package:wallet_core_managment/views/side_menu/side_menu_title_widget.dart';
-import 'package:wallet_core_managment/views/side_menu/sub_menu_title_widget.dart';
-import 'package:wallet_core_managment/views/systems/accounting_topics_managment_screen.dart';
-import 'package:wallet_core_managment/views/systems/branch_managment_screen.dart';
-import 'package:wallet_core_managment/views/systems/commision_setting_screen.dart';
-import 'package:wallet_core_managment/views/systems/transaction_limitation_screen.dart';
-import 'package:wallet_core_managment/views/systems/user_managment_screen.dart';
-import 'package:wallet_core_managment/views/systems/wallet_types_screen.dart';
+import 'package:wallet_core_management/utils/const.dart';
+import 'package:wallet_core_management/utils/my_navigator.dart';
+import 'package:wallet_core_management/views/customers/insert_real_customers_screen.dart';
+import 'package:wallet_core_management/views/dashboard/dashboard_screen.dart';
+import 'package:wallet_core_management/views/side_menu/side_menu_title_widget.dart';
+import 'package:wallet_core_management/views/side_menu/sub_menu_title_widget.dart';
+import 'package:wallet_core_management/views/systems/branch_management_screen.dart';
+import 'package:wallet_core_management/views/systems/commision_setting_screen.dart';
+import 'package:wallet_core_management/views/systems/transaction_limitation_screen.dart';
+import 'package:wallet_core_management/views/systems/wallet_types_screen.dart';
+import 'package:wallet_core_management/views/wallets/customers_wallet_management_screen.dart';
+
+import '../systems/accounting_topics_managment_screen.dart';
+import '../systems/user_managment_screen.dart';
 
 class SideMenu extends StatefulWidget {
   const SideMenu({
@@ -310,20 +311,20 @@ class _SideMenuState extends State<SideMenu> {
 
   List<String> get _systemRoutes => [
         WalletTypesScreen.route,
-        UserManagmentScreen.route,
-        AccountingTopicsManagmentScreen.route,
+        UserManagementScreen.route,
+        AccountingTopicsManagementScreen.route,
         TransactionLimitationScreen.route,
         CommisionSettingScreen.route,
-        BranchManagmentScreen.route,
+        BranchManagementScreen.route,
       ];
 
   List<String> get _systemSubtitles => [
         _localeProvider.walletTypes,
         _localeProvider.userManagement,
-        _localeProvider.accountingTopicsManagment,
+        _localeProvider.accountingTopicsManagement,
         _localeProvider.transactionLimitation,
         _localeProvider.commisionSetting,
-        _localeProvider.branchManagment,
+        _localeProvider.branchManagement,
       ];
 
   List<String> get _customersRoutes => [
@@ -336,18 +337,18 @@ class _SideMenuState extends State<SideMenu> {
   List<String> get _customersSubtitles => [
         _localeProvider.insertRealCustomers,
         _localeProvider.insertLegalCustomers,
-        _localeProvider.customersManagment,
+        _localeProvider.customersManagement,
         _localeProvider.customersEvaluation,
       ];
 
   List<String> get _walletRoutes => [
-        '',
+        CustomersWalletManagement.route,
         '',
         '',
       ];
 
   List<String> get _walletSubtitles => [
-        _localeProvider.customersWalletManagment,
+        _localeProvider.customersWalletManagement,
         _localeProvider.transfer,
         _localeProvider.groupSettlement
       ];
@@ -360,8 +361,8 @@ class _SideMenuState extends State<SideMenu> {
 
   List<String> get _accountingSubtitles => [
         _localeProvider.createAccount,
-        _localeProvider.accountManagment,
-        _localeProvider.writsManagment,
+        _localeProvider.accountManagement,
+        _localeProvider.writsManagement,
       ];
 
   List<String> get _reportingRoutes => [

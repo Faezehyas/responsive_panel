@@ -1,23 +1,23 @@
 import 'dart:async';
-import 'package:wallet_core_managment/base_screen.dart';
-import 'package:wallet_core_managment/providers/locale_provider.dart';
-import 'package:wallet_core_managment/providers/main_provider.dart';
-import 'package:wallet_core_managment/providers/theme_provider.dart';
-import 'package:wallet_core_managment/views/customers/insert_real_customers_screen.dart';
-import 'package:wallet_core_managment/views/auth/login_Screen.dart';
-import 'package:wallet_core_managment/views/dashboard/dashboard_screen.dart';
-import 'package:wallet_core_managment/views/side_menu/side_menu.dart';
-import 'package:wallet_core_managment/views/splash_screen.dart';
+import 'package:wallet_core_management/base_screen.dart';
+import 'package:wallet_core_management/providers/locale_provider.dart';
+import 'package:wallet_core_management/providers/main_provider.dart';
+import 'package:wallet_core_management/providers/theme_provider.dart';
+import 'package:wallet_core_management/views/customers/insert_real_customers_screen.dart';
+import 'package:wallet_core_management/views/auth/login_Screen.dart';
+import 'package:wallet_core_management/views/dashboard/dashboard_screen.dart';
+import 'package:wallet_core_management/views/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_web_plugins/flutter_web_plugins.dart';
-import 'package:wallet_core_managment/views/systems/accounting_topics_managment_screen.dart';
-import 'package:wallet_core_managment/views/systems/branch_managment_screen.dart';
-import 'package:wallet_core_managment/views/systems/commision_setting_screen.dart';
-import 'package:wallet_core_managment/views/systems/transaction_limitation_screen.dart';
-import 'package:wallet_core_managment/views/systems/user_managment_screen.dart';
-import 'package:wallet_core_managment/views/systems/wallet_types_screen.dart';
+import 'package:wallet_core_management/views/systems/accounting_topics_managment_screen.dart';
+import 'package:wallet_core_management/views/systems/branch_management_screen.dart';
+import 'package:wallet_core_management/views/systems/commision_setting_screen.dart';
+import 'package:wallet_core_management/views/systems/transaction_limitation_screen.dart';
+import 'package:wallet_core_management/views/systems/user_managment_screen.dart';
+import 'package:wallet_core_management/views/systems/wallet_types_screen.dart';
+import 'package:wallet_core_management/views/wallets/customers_wallet_management_screen.dart';
 
 Future<void> main() async {
   await dotenv.load();
@@ -102,14 +102,14 @@ class _MyAppState extends State<MyApp> {
           pageBuilder: (_, __, ___) => const WalletTypesScreen(),
           settings: settings);
     }
-    if (settings.name == UserManagmentScreen.route) {
+    if (settings.name == UserManagementScreen.route) {
       return PageRouteBuilder(
-          pageBuilder: (_, __, ___) => const UserManagmentScreen(),
+          pageBuilder: (_, __, ___) => const UserManagementScreen(),
           settings: settings);
     }
-    if (settings.name == AccountingTopicsManagmentScreen.route) {
+    if (settings.name == AccountingTopicsManagementScreen.route) {
       return PageRouteBuilder(
-          pageBuilder: (_, __, ___) => const AccountingTopicsManagmentScreen(),
+          pageBuilder: (_, __, ___) => const AccountingTopicsManagementScreen(),
           settings: settings);
     }
     if (settings.name == TransactionLimitationScreen.route) {
@@ -122,9 +122,14 @@ class _MyAppState extends State<MyApp> {
           pageBuilder: (_, __, ___) => const CommisionSettingScreen(),
           settings: settings);
     }
-    if (settings.name == BranchManagmentScreen.route) {
+    if (settings.name == BranchManagementScreen.route) {
       return PageRouteBuilder(
-          pageBuilder: (_, __, ___) => const BranchManagmentScreen(),
+          pageBuilder: (_, __, ___) => const BranchManagementScreen(),
+          settings: settings);
+    }
+    if (settings.name == CustomersWalletManagement.route) {
+      return PageRouteBuilder(
+          pageBuilder: (_, __, ___) => const CustomersWalletManagement(),
           settings: settings);
     }
   }

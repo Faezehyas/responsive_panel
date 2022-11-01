@@ -1,32 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:wallet_core_managment/models/employee_item.dart';
-import 'package:wallet_core_managment/providers/locale_provider.dart';
-import 'package:wallet_core_managment/providers/theme_provider.dart';
-import 'package:wallet_core_managment/utils/custom_grid_delegate.dart';
-import 'package:wallet_core_managment/utils/extension.dart';
-import 'package:wallet_core_managment/utils/responsive.dart';
-import 'package:wallet_core_managment/views/my_widgets/amount_widget.dart';
-import 'package:wallet_core_managment/views/my_widgets/branch_selector.dart';
-import 'package:wallet_core_managment/views/my_widgets/custom_modal.dart';
-import 'package:wallet_core_managment/views/my_widgets/customer_selector.dart';
-import 'package:wallet_core_managment/views/my_widgets/mini_widgets.dart';
-import 'package:wallet_core_managment/views/my_widgets/my_button.dart';
-import 'package:wallet_core_managment/views/my_widgets/my_drop_down.dart';
-import 'package:wallet_core_managment/views/my_widgets/my_text_form_field.dart';
-import 'package:wallet_core_managment/views/my_widgets/table/my_table_widget.dart';
-import 'package:wallet_core_managment/views/my_widgets/table/table_item_widget.dart';
+import 'package:wallet_core_management/models/employee_item.dart';
+import 'package:wallet_core_management/providers/locale_provider.dart';
+import 'package:wallet_core_management/providers/theme_provider.dart';
+import 'package:wallet_core_management/utils/custom_grid_delegate.dart';
+import 'package:wallet_core_management/utils/extension.dart';
+import 'package:wallet_core_management/utils/responsive.dart';
+import 'package:wallet_core_management/views/my_widgets/amount_widget.dart';
+import 'package:wallet_core_management/views/my_widgets/branch_selector.dart';
+import 'package:wallet_core_management/views/my_widgets/custom_modal.dart';
+import 'package:wallet_core_management/views/my_widgets/customer_selector.dart';
+import 'package:wallet_core_management/views/my_widgets/mini_widgets.dart';
+import 'package:wallet_core_management/views/my_widgets/my_button.dart';
+import 'package:wallet_core_management/views/my_widgets/my_drop_down.dart';
+import 'package:wallet_core_management/views/my_widgets/my_text_form_field.dart';
+import 'package:wallet_core_management/views/my_widgets/table/my_table_widget.dart';
+import 'package:wallet_core_management/views/my_widgets/table/table_item_widget.dart';
 
-class UserManagmentScreen extends StatefulWidget {
-  const UserManagmentScreen({super.key});
+class UserManagementScreen extends StatefulWidget {
+  const UserManagementScreen({super.key});
 
-  static const route = '/user-managment';
+  static const route = '/user-management';
 
   @override
-  State<UserManagmentScreen> createState() => _UserManagmentScreenState();
+  State<UserManagementScreen> createState() => _UserManagementScreenState();
 }
 
-class _UserManagmentScreenState extends State<UserManagmentScreen> {
+class _UserManagementScreenState extends State<UserManagementScreen> {
   LocaleProvider _localeProvider = LocaleProvider();
   ThemeProvider _themeProvider = ThemeProvider();
   bool _isNew = false;

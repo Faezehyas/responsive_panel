@@ -1,5 +1,5 @@
-import 'package:wallet_core_managment/utils/extension.dart';
-import 'package:wallet_core_managment/utils/user_infos.dart';
+import 'package:wallet_core_management/utils/extension.dart';
+import 'package:wallet_core_management/utils/user_infos.dart';
 import 'package:flutter/material.dart';
 
 import '../theme/my_dark_theme.dart';

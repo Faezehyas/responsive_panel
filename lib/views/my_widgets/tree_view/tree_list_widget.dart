@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:wallet_core_managment/views/my_widgets/tree_view/tree_item.dart';
+import 'package:wallet_core_management/views/my_widgets/tree_view/tree_item.dart';
 import 'tree_child_widget.dart';
 
 class TreeListWidget<T> extends StatelessWidget {

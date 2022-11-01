@@ -1,8 +1,8 @@
 import 'package:intl/intl.dart' as intl;
 import 'package:persian_number_utility/persian_number_utility.dart';
-import 'package:wallet_core_managment/utils/enums.dart';
-import 'package:wallet_core_managment/utils/extension.dart';
-import 'package:wallet_core_managment/utils/user_infos.dart';
+import 'package:wallet_core_management/utils/enums.dart';
+import 'package:wallet_core_management/utils/extension.dart';
+import 'package:wallet_core_management/utils/user_infos.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import '../utils/const.dart';
@@ -120,13 +120,13 @@ class LocaleProvider extends ChangeNotifier {
   String get userManagement => dotenv
       .env[currentLocaleMode.isEn ? 'userManagementEn' : 'userManagementFa']
       .toString();
-  String get specialTopicsManagment => dotenv.env[currentLocaleMode.isEn
-          ? 'specialTopicsManagmentEn'
-          : 'specialTopicsManagmentFa']
+  String get specialTopicsManagement => dotenv.env[currentLocaleMode.isEn
+          ? 'specialTopicsManagementEn'
+          : 'specialTopicsManagementFa']
       .toString();
-  String get accountingTopicsManagment => dotenv.env[currentLocaleMode.isEn
-          ? 'accountingTopicsManagmentEn'
-          : 'accountingTopicsManagmentFa']
+  String get accountingTopicsManagement => dotenv.env[currentLocaleMode.isEn
+          ? 'accountingTopicsManagementEn'
+          : 'accountingTopicsManagementFa']
       .toString();
   String get transactionLimitation => dotenv.env[currentLocaleMode.isEn
           ? 'transactionLimitationEn'
@@ -135,8 +135,8 @@ class LocaleProvider extends ChangeNotifier {
   String get commisionSetting => dotenv
       .env[currentLocaleMode.isEn ? 'commisionSettingEn' : 'commisionSettingFa']
       .toString();
-  String get branchManagment => dotenv
-      .env[currentLocaleMode.isEn ? 'branchManagmentEn' : 'branchManagmentFa']
+  String get branchManagement => dotenv
+      .env[currentLocaleMode.isEn ? 'branchManagementEn' : 'branchManagementFa']
       .toString();
   String get insertRealCustomers => dotenv.env[currentLocaleMode.isEn
           ? 'insertRealCustomersEn'
@@ -146,9 +146,9 @@ class LocaleProvider extends ChangeNotifier {
           ? 'insertLegalCustomersEn'
           : 'insertLegalCustomersFa']
       .toString();
-  String get customersManagment => dotenv.env[currentLocaleMode.isEn
-          ? 'customersManagmentEn'
-          : 'customersManagmentFa']
+  String get customersManagement => dotenv.env[currentLocaleMode.isEn
+          ? 'customersManagementEn'
+          : 'customersManagementFa']
       .toString();
   String get customersEvaluation => dotenv.env[currentLocaleMode.isEn
           ? 'customersEvaluationEn'
@@ -156,9 +156,9 @@ class LocaleProvider extends ChangeNotifier {
       .toString();
   String get message =>
       dotenv.env[currentLocaleMode.isEn ? 'messageEn' : 'messageFa'].toString();
-  String get customersWalletManagment => dotenv.env[currentLocaleMode.isEn
-          ? 'customersWalletManagmentEn'
-          : 'customersWalletManagmentFa']
+  String get customersWalletManagement => dotenv.env[currentLocaleMode.isEn
+          ? 'customersWalletManagementEn'
+          : 'customersWalletManagementFa']
       .toString();
   String get transfer =>
       dotenv.env[currentLocaleMode.isEn ? 'transferEn' : 'transferFa']
@@ -169,11 +169,12 @@ class LocaleProvider extends ChangeNotifier {
   String get createAccount =>
       dotenv.env[currentLocaleMode.isEn ? 'createAccountEn' : 'createAccountFa']
           .toString();
-  String get accountManagment => dotenv
-      .env[currentLocaleMode.isEn ? 'accountManagmentEn' : 'accountManagmentFa']
+  String get accountManagement => dotenv.env[currentLocaleMode.isEn
+          ? 'accountManagementEn'
+          : 'accountManagementFa']
       .toString();
-  String get writsManagment => dotenv
-      .env[currentLocaleMode.isEn ? 'writsManagmentEn' : 'writsManagmentFa']
+  String get writsManagement => dotenv
+      .env[currentLocaleMode.isEn ? 'writsManagementEn' : 'writsManagementFa']
       .toString();
   String get ledgerBalance =>
       dotenv.env[currentLocaleMode.isEn ? 'ledgerBalanceEn' : 'ledgerBalanceFa']
@@ -472,4 +473,38 @@ class LocaleProvider extends ChangeNotifier {
   String get newOrEdit =>
       dotenv.env[currentLocaleMode.isEn ? 'newOrEditEn' : 'newOrEditFa']
           .toString();
+  String get walletNumber =>
+      dotenv.env[currentLocaleMode.isEn ? 'walletNumberEn' : 'walletNumberFa']
+          .toString();
+  String get customerType =>
+      dotenv.env[currentLocaleMode.isEn ? 'customerTypeEn' : 'customerTypeFa']
+          .toString();
+  String get registerDate =>
+      dotenv.env[currentLocaleMode.isEn ? 'registerDateEn' : 'registerDateFa']
+          .toString();
+  String get reason =>
+      dotenv.env[currentLocaleMode.isEn ? 'reasonEn' : 'reasonFa'].toString();
+  String get walletStatus =>
+      dotenv.env[currentLocaleMode.isEn ? 'walletStatusEn' : 'walletStatusFa']
+          .toString();
+  String get walletOwner =>
+      dotenv.env[currentLocaleMode.isEn ? 'walletOwnerEn' : 'walletOwnerFa']
+          .toString();
+  String get blocked =>
+      dotenv.env[currentLocaleMode.isEn ? 'blockedEn' : 'blockedFa'].toString();
+  String get availableBalance => dotenv
+      .env[currentLocaleMode.isEn ? 'availableBalanceEn' : 'availableBalanceFa']
+      .toString();
+  String get blockAmount =>
+      dotenv.env[currentLocaleMode.isEn ? 'blockAmountEn' : 'blockAmountFa']
+          .toString();
+  String get unblockAmount => dotenv
+      .env[currentLocaleMode.isEn ? 'unblockAmountEn' : 'unblockAmountFa']
+      .toString();
+  String get unblock =>
+      dotenv.env[currentLocaleMode.isEn ? 'unblockEn' : 'unblockFa'].toString();
+  String get block =>
+      dotenv.env[currentLocaleMode.isEn ? 'blockEn' : 'blockFa'].toString();
+  String get balance =>
+      dotenv.env[currentLocaleMode.isEn ? 'balanceEn' : 'balanceFa'].toString();
 }

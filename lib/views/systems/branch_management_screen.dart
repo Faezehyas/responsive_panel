@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:provider/provider.dart';
-import 'package:wallet_core_managment/utils/extension.dart';
-import 'package:wallet_core_managment/views/my_widgets/my_drop_down.dart';
+import 'package:wallet_core_management/utils/extension.dart';
+import 'package:wallet_core_management/views/my_widgets/my_drop_down.dart';
 
 import '../../models/employee_item.dart';
 import '../../providers/locale_provider.dart';
@@ -16,16 +16,16 @@ import '../my_widgets/my_text_form_field.dart';
 import '../my_widgets/table/my_table_widget.dart';
 import '../my_widgets/table/table_item_widget.dart';
 
-class BranchManagmentScreen extends StatefulWidget {
-  const BranchManagmentScreen({super.key});
+class BranchManagementScreen extends StatefulWidget {
+  const BranchManagementScreen({super.key});
 
-  static const route = '/branch-managment-screen';
+  static const route = '/branch-management-screen';
 
   @override
-  State<BranchManagmentScreen> createState() => _BranchManagmentScreenState();
+  State<BranchManagementScreen> createState() => _BranchManagementScreenState();
 }
 
-class _BranchManagmentScreenState extends State<BranchManagmentScreen> {
+class _BranchManagementScreenState extends State<BranchManagementScreen> {
   LocaleProvider _localeProvider = LocaleProvider();
   ThemeProvider _themeProvider = ThemeProvider();
   bool _isNew = false;
@@ -44,7 +44,7 @@ class _BranchManagmentScreenState extends State<BranchManagmentScreen> {
         builder: (context, themeProvider, localeProvider, _) {
       return Column(
         children: [
-          FormTitle(localeProvider.system, localeProvider.branchManagment),
+          FormTitle(localeProvider.system, localeProvider.branchManagement),
           !Responsive.isMobile(context) ? _tabletAndDesktop() : _mobile()
         ],
       );

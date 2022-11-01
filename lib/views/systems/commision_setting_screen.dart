@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:wallet_core_managment/utils/extension.dart';
-import 'package:wallet_core_managment/views/my_widgets/account_number_selector.dart';
-import 'package:wallet_core_managment/views/my_widgets/my_button.dart';
+import 'package:wallet_core_management/utils/extension.dart';
+import 'package:wallet_core_management/views/my_widgets/account_number_selector.dart';
+import 'package:wallet_core_management/views/my_widgets/my_button.dart';
 
 import '../../providers/locale_provider.dart';
 import '../../providers/theme_provider.dart';

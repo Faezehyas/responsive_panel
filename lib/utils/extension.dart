@@ -1,6 +1,6 @@
-import 'package:wallet_core_managment/utils/enums.dart';
-import 'package:wallet_core_managment/utils/utils.dart';
-import 'package:wallet_core_managment/views/my_widgets/tree_view/tree_item.dart';
+import 'package:wallet_core_management/utils/enums.dart';
+import 'package:wallet_core_management/utils/utils.dart';
+import 'package:wallet_core_management/views/my_widgets/tree_view/tree_item.dart';
 
 import '../models/tree_test_model.dart';
 

@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
-import 'package:wallet_core_managment/utils/extension.dart';
+import 'package:wallet_core_management/utils/extension.dart';
 import 'tree_item.dart';
 
 part 'tree_management_state.dart';
