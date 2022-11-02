@@ -554,4 +554,9 @@ class LocaleProvider extends ChangeNotifier {
   String get mobileNumber =>
       dotenv.env[currentLocaleMode.isEn ? 'mobileNumberEn' : 'mobileNumberFa']
           .toString();
+  String get topicName =>
+      dotenv.env[currentLocaleMode.isEn ? 'topicNameEn' : 'topicNameFa']
+          .toString();
+  String get active =>
+      dotenv.env[currentLocaleMode.isEn ? 'activeEn' : 'activeFa'].toString();
 }

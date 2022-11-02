@@ -3,6 +3,7 @@ import 'package:wallet_core_management/base_screen.dart';
 import 'package:wallet_core_management/providers/locale_provider.dart';
 import 'package:wallet_core_management/providers/main_provider.dart';
 import 'package:wallet_core_management/providers/theme_provider.dart';
+import 'package:wallet_core_management/views/accounting/create_account_screen.dart';
 import 'package:wallet_core_management/views/customers/insert_real_customers_screen.dart';
 import 'package:wallet_core_management/views/auth/login_Screen.dart';
 import 'package:wallet_core_management/views/dashboard/dashboard_screen.dart';
@@ -142,6 +143,11 @@ class _MyAppState extends State<MyApp> {
     if (settings.name == GroupSettlementScreen.route) {
       return PageRouteBuilder(
           pageBuilder: (_, __, ___) => const GroupSettlementScreen(),
+          settings: settings);
+    }
+    if (settings.name == CreateAccountScreen.route) {
+      return PageRouteBuilder(
+          pageBuilder: (_, __, ___) => const CreateAccountScreen(),
           settings: settings);
     }
   }

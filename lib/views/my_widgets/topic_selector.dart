@@ -5,11 +5,11 @@ import 'package:wallet_core_management/providers/theme_provider.dart';
 import 'package:wallet_core_management/views/my_widgets/my_text_form_field.dart';
 
 class TopicSelector extends StatefulWidget {
-  String codeLabelText;
-  String descLabelText;
+  String? codeLabelText;
+  String? descLabelText;
   TopicSelector({
-    required this.codeLabelText,
-    required this.descLabelText,
+    this.codeLabelText,
+    this.descLabelText,
     Key? key,
   }) : super(key: key);
 
@@ -27,7 +27,7 @@ class _TopicSelectorState extends State<TopicSelector> {
         child: Row(
           children: [
             MyTextFormField(
-              labelText: widget.codeLabelText,
+              labelText: widget.codeLabelText ?? _localeProvider.topicCode,
               textDirection: _localeProvider.textDirection,
               maxLength: 10,
               width: 166,
@@ -58,7 +58,7 @@ class _TopicSelectorState extends State<TopicSelector> {
             Expanded(
                 child: MyTextFormField(
               textDirection: _localeProvider.textDirection,
-              labelText: widget.descLabelText,
+              labelText: widget.descLabelText ??_localeProvider.topicName,
               textAlign: _localeProvider.textAlign,
               readOnly: true,
               suffixIcon: const Icon(

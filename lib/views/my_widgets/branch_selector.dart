@@ -5,12 +5,12 @@ import 'package:wallet_core_management/providers/theme_provider.dart';
 import 'package:wallet_core_management/views/my_widgets/my_text_form_field.dart';
 
 class BranchSelector extends StatefulWidget {
-  String codeLabelText;
-  String descLabelText;
+  String? codeLabelText;
+  String? descLabelText;
   double? width;
   BranchSelector({
-    required this.codeLabelText,
-    required this.descLabelText,
+    this.codeLabelText,
+    this.descLabelText,
     this.width,
     Key? key,
   }) : super(key: key);
@@ -30,7 +30,7 @@ class _BranchSelectorState extends State<BranchSelector> {
         child: Row(
           children: [
             MyTextFormField(
-              labelText: widget.codeLabelText,
+              labelText: widget.codeLabelText ?? _localeProvider.branchCode,
               textDirection: _localeProvider.textDirection,
               maxLength: 7,
               width: 150,
@@ -61,7 +61,7 @@ class _BranchSelectorState extends State<BranchSelector> {
             Expanded(
                 child: MyTextFormField(
               textDirection: _localeProvider.textDirection,
-              labelText: widget.descLabelText,
+              labelText: widget.descLabelText ?? _localeProvider.branchName,
               textAlign: _localeProvider.textAlign,
               readOnly: true,
               suffixIcon: const Icon(
