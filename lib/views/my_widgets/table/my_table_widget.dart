@@ -8,10 +8,12 @@ class MyTableWidget extends StatelessWidget {
   Color? oddBackgrounColor;
   List<Widget> headers;
   List<List<Widget>>? data;
+  ScrollPhysics? physics;
   MyTableWidget(
       {required this.headers,
       this.data,
       this.headerBackgroundColor,
+      this.physics,
       this.oddBackgrounColor});
 
   ScrollController _rowScrollContrller = ScrollController();
@@ -20,6 +22,7 @@ class MyTableWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView(
       controller: ScrollController(),
+      physics: physics,
       children: [
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,

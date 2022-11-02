@@ -528,6 +528,30 @@ class LocaleProvider extends ChangeNotifier {
       dotenv.env[currentLocaleMode.isEn ? 'cashoutAmountEn' : 'cashoutAmountFa']
           .toString();
   String get send =>
-      dotenv.env[currentLocaleMode.isEn ? 'sendEn' : 'sendFa']
+      dotenv.env[currentLocaleMode.isEn ? 'sendEn' : 'sendFa'].toString();
+  String get fileAddress =>
+      dotenv.env[currentLocaleMode.isEn ? 'fileAddressEn' : 'fileAddressFa']
+          .toString();
+  String get totalAmount =>
+      dotenv.env[currentLocaleMode.isEn ? 'totalAmountEn' : 'totalAmountFa']
+          .toString();
+  String get settlementToBankAccount => dotenv.env[currentLocaleMode.isEn
+          ? 'settlementToBankAccountEn'
+          : 'settlementToBankAccountFa']
+      .toString();
+  String get ibanNumber =>
+      dotenv.env[currentLocaleMode.isEn ? 'ibanNumberEn' : 'ibanNumberFa']
+          .toString();
+  String get outputList =>
+      dotenv.env[currentLocaleMode.isEn ? 'outputListEn' : 'outputListFa']
+          .toString();
+  String get serialNumber =>
+      dotenv.env[currentLocaleMode.isEn ? 'serialNumberEn' : 'serialNumberFa']
+          .toString();
+  String get errorDescription => dotenv
+      .env[currentLocaleMode.isEn ? 'errorDescriptionEn' : 'errorDescriptionFa']
+      .toString();
+  String get mobileNumber =>
+      dotenv.env[currentLocaleMode.isEn ? 'mobileNumberEn' : 'mobileNumberFa']
           .toString();
 }

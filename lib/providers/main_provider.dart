@@ -1,7 +1,7 @@
 import 'package:wallet_core_management/utils/my_navigator.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:wallet_core_management/views/wallets/transfer_screen.dart';
+import 'package:wallet_core_management/views/wallets/group_settlement_screen.dart';
 
 class MainProvider extends ChangeNotifier {
   static late SharedPreferences sharedPreferences;
@@ -13,7 +13,7 @@ class MainProvider extends ChangeNotifier {
     if (!isInit) {
       isInit = true;
       sharedPreferences = await SharedPreferences.getInstance();
-      MyNavigator.pushNamedAndRemoveUntil(context, TransferSceen.route);
+      MyNavigator.pushNamedAndRemoveUntil(context, GroupSettlementScreen.route);
     }
   }
 

@@ -19,8 +19,9 @@ class MyTableItemWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return Container(
       width: width,
+      padding: const EdgeInsets.symmetric(horizontal: 1),
       child: actions ??
           Text(
             title ?? '',
