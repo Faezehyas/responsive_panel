@@ -559,4 +559,7 @@ class LocaleProvider extends ChangeNotifier {
           .toString();
   String get active =>
       dotenv.env[currentLocaleMode.isEn ? 'activeEn' : 'activeFa'].toString();
+  String get accountName =>
+      dotenv.env[currentLocaleMode.isEn ? 'accountNameEn' : 'accountNameFa']
+          .toString();
 }

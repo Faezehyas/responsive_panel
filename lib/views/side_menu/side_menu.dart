@@ -16,7 +16,7 @@ import 'package:wallet_core_management/views/wallets/customers_wallet_management
 import 'package:wallet_core_management/views/wallets/group_settlement_screen.dart';
 import 'package:wallet_core_management/views/wallets/transfer_screen.dart';
 
-import '../accounting/create_account_screen.dart';
+import '../accounting/account_management_screen.dart';
 import '../systems/accounting_topics_managment_screen.dart';
 import '../systems/user_managment_screen.dart';
 
@@ -357,13 +357,11 @@ class _SideMenuState extends State<SideMenu> {
       ];
 
   List<String> get _accountingRoutes => [
-        CreateAccountScreen.route,
-        '',
+        AccountManagementScreen.route,
         '',
       ];
 
   List<String> get _accountingSubtitles => [
-        _localeProvider.createAccount,
         _localeProvider.accountManagement,
         _localeProvider.writsManagement,
       ];
