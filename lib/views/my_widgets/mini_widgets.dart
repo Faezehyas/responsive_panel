@@ -29,9 +29,8 @@ class ActionWidgets extends StatelessWidget {
       child: Tooltip(
         message: tooltipMessage,
         decoration: BoxDecoration(
-          color: context.read<ThemeProvider>().fontColor3,
-          borderRadius: BorderRadius.circular(8)
-        ),
+            color: context.read<ThemeProvider>().fontColor3,
+            borderRadius: BorderRadius.circular(8)),
         textStyle: TextStyle(
             fontFamily: context.read<LocaleProvider>().regularFontFamily,
             color: context.read<ThemeProvider>().boxColor3),
@@ -52,9 +51,11 @@ class ActionWidgets extends StatelessWidget {
 class BoxContainer extends StatelessWidget {
   Widget child;
   EdgeInsetsGeometry? margin;
+  EdgeInsetsGeometry? padding;
   BoxContainer({
     required this.child,
     this.margin,
+    this.padding,
     Key? key,
     height,
   }) : super(key: key);
@@ -64,7 +65,7 @@ class BoxContainer extends StatelessWidget {
     return Consumer<ThemeProvider>(builder: (context, themeProvider, _) {
       return Container(
         margin: margin,
-        padding: EdgeInsets.all(8),
+        padding: padding ?? const EdgeInsets.all(8),
         decoration: BoxDecoration(
             color: themeProvider.boxColor3,
             borderRadius: BorderRadius.circular(8)),
@@ -145,4 +146,3 @@ class FormTitle extends StatelessWidget {
     });
   }
 }
-

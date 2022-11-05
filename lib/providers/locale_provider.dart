@@ -333,4 +333,25 @@ class LocaleProvider extends ChangeNotifier {
   String get description =>
       dotenv.env[currentLocaleMode.isEn ? 'descriptionEn' : 'descriptionFa']
           .toString();
+  String get mobileNumber =>
+      dotenv.env[currentLocaleMode.isEn ? 'mobileNumberEn' : 'mobileNumberFa']
+          .toString();
+  String get name =>
+      dotenv.env[currentLocaleMode.isEn ? 'nameEn' : 'nameFa']
+          .toString();
+  String get lastname =>
+      dotenv.env[currentLocaleMode.isEn ? 'lastNameEn' : 'lastNameFa']
+          .toString();
+  String get fatherName =>
+      dotenv.env[currentLocaleMode.isEn ? 'fatherNameEn' : 'fatherNameFa']
+          .toString();
+  String get nationalCode =>
+      dotenv.env[currentLocaleMode.isEn ? 'nationalCodeEn' : 'nationalCodeFa']
+          .toString();
+  String get birthDate =>
+      dotenv.env[currentLocaleMode.isEn ? 'birthdateEn' : 'birthdateFa']
+          .toString();
+  String get ibanNumber =>
+      dotenv.env[currentLocaleMode.isEn ? 'ibanNumberEn' : 'ibanNumberFa']
+          .toString();
 }
